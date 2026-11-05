@@ -115,7 +115,7 @@ main > * { max-width: var(--amplada); margin-inline: auto; padding-inline: var(-
 .enllac-fort { font-weight: 700; }
 
 /* ── Heroi ── */
-.heroi { display: grid; grid-template-columns: 1fr; gap: 3rem; padding-block: clamp(2.5rem, 6vw, 5rem) var(--espai); align-items: center; }
+.heroi { display: grid; grid-template-columns: 1fr; gap: 3.5rem; padding-block: clamp(2.5rem, 6vw, 5rem) var(--espai); align-items: center; }
 .heroi h1 { max-width: 11ch; color: var(--tinta); }
 .entradeta { font-size: clamp(1.2rem, 1.8vw, 1.4rem); line-height: 1.5; max-width: 34em; }
 @media (min-width: 960px) {
@@ -814,3 +814,38 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
   .doc-fons__fulls picture:last-child { transition: transform 600ms cubic-bezier(.2, .7, .2, 1); }
   .doc-fons:hover .doc-fons__fulls picture:last-child { transform: rotate(3deg) translateY(-6px); }
 }
+
+/* ── Inici, versió moderna ── */
+.heroi__rotul { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0 0 1.25rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); }
+.heroi__rotul span { padding: 0.25rem 0.6rem; background: var(--granat); color: var(--paper); border-radius: 999px; letter-spacing: 0.08em; }
+.heroi h1 { max-width: 12ch; font-size: clamp(2.8rem, 6.4vw, 5.2rem); line-height: 0.98; letter-spacing: -0.035em; }
+.heroi h1 em { font-style: normal; color: var(--granat); }
+.heroi__any { display: block; margin-top: 0.5rem; font-size: 0.42em; font-weight: 700; letter-spacing: 0; color: var(--ocre); }
+.heroi .entradeta { max-width: 30em; color: var(--gris); }
+.heroi__accions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin: 2rem 0 0; }
+.boto--prim { padding: 0.65rem 1.3rem; border-radius: 999px; font-size: 0.98rem; border-width: 1.5px; }
+.enllac-fletxa { font-weight: 700; color: var(--tinta); text-decoration: none; border-bottom: 1.5px solid var(--ocre); padding-bottom: 0.15rem; }
+.enllac-fletxa span { display: inline-block; transition: transform 250ms ease-out; }
+.enllac-fletxa:hover { color: var(--granat); }
+.enllac-fletxa:hover span { transform: translateX(4px); }
+
+/* Pila de fotos: en passar-hi per sobre, la principal creix i n'apareixen dues més */
+.heroi__foto .pila { position: relative; }
+.pila__f { display: block; }
+.pila__f img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
+.pila__f--principal { position: relative; z-index: 2; transition: transform 500ms cubic-bezier(.2, .7, .2, 1); }
+.pila__f--e, .pila__f--d { position: absolute; z-index: 1; inset: 8% 8%; transition: transform 600ms cubic-bezier(.2, .7, .2, 1), opacity 400ms; box-shadow: 0 24px 50px -18px rgba(31, 42, 46, 0.55); border: 6px solid var(--paper); border-radius: 6px; background: var(--paper); }
+.pila__f--e img, .pila__f--d img { height: 100%; aspect-ratio: auto; }
+.pila__f--e { transform: rotate(-4deg); opacity: 0; }
+.pila__f--d { transform: rotate(4deg); opacity: 0; }
+.heroi__foto:hover .pila__f--principal, .heroi__foto:focus-within .pila__f--principal { transform: scale(1.06); }
+.heroi__foto:hover .pila__f--e, .heroi__foto:focus-within .pila__f--e { opacity: 1; transform: translate(-54%, 26%) rotate(-12deg) scale(0.56); }
+.heroi__foto:hover .pila__f--d, .heroi__foto:focus-within .pila__f--d { opacity: 1; transform: translate(60%, 34%) rotate(10deg) scale(0.6); }
+.heroi__foto:hover .marc__extra, .heroi__foto:hover::before, .heroi__foto:hover::after { opacity: 0.35; transition: opacity 400ms; }
+/* Pantalles tàctils: les dues fotos treuen el cap sempre */
+@media (hover: none), (max-width: 959px) {
+  .pila__f--e { opacity: 1; transform: translate(-30%, 58%) rotate(-9deg) scale(0.5); }
+  .pila__f--d { opacity: 1; transform: translate(32%, 64%) rotate(8deg) scale(0.5); }
+  .heroi__foto { margin-bottom: 5.5rem; }
+}
+@media (prefers-reduced-motion: reduce) { .pila__f--principal, .pila__f--e, .pila__f--d { transition: none; } }
