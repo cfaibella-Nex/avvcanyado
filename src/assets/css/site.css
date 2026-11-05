@@ -639,3 +639,10 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
 .formulari__estat { margin: 0; font-weight: 700; }
 .formulari__estat[data-tipus="ok"] { color: #2E6B3A; }
 .formulari__estat[data-tipus="error"] { color: #B3261E; }
+
+/* Capçalera d'Activitats: la festa major a la plaça */
+.vel--festa { margin-bottom: 0; }
+.vel--festa .vel__foto img { object-position: 50% 55%; }
+.vel--festa .vel__text { padding-block: clamp(5rem, 14vw, 10rem) clamp(2.5rem, 6vw, 4rem); }
+.vel .dins-pagina a { color: var(--paper); text-decoration-color: var(--ocre); text-underline-offset: 0.3em; }
+.cronologia--museu li:nth-child(5) .peca { max-width: 13rem; justify-self: center; }
