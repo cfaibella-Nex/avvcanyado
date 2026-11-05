@@ -1,0 +1,4 @@
+{
+  "_info": "Llibres i publicacions de l'AVV. Camps: titol, autor, any, descripcio, preu (text, p. ex. '15 €'), portada (nom de la imatge a src/assets/img, opcional), estat ('disponible' | 'exhaurit'). Si la llista és buida, la pàgina ho indica.",
+  "publicacions": []
+}

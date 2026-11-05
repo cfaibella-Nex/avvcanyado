@@ -12,12 +12,14 @@ HTML, CSS i JS sense dependències. Un sol script (`build.mjs`) munta les pàgin
 |---|---|
 | `data/activitats.json` | **Agenda.** Afegeix-hi activitats noves. Les passades van soles a «Anteriors». |
 | `data/tallers.json` | Tallers setmanals del curs |
+| `data/espais.json` | **Espais** (local, pista, masia…): textos i fotos. Per afegir fotos o espais nous |
+| `data/publicacions.json` | **Llibres** de l'AVV (títol, autor, any, preu, portada) |
 | `src/pages/` | Una pàgina per fitxer, amb un bloc `<!--meta {...} -->` a dalt |
 | `src/partials/` | Capçalera, peu i `<head>` comuns |
 | `src/assets/css/site.css` | Estil, amb la marca unificada (granat #7A3B2E sobre crema) |
 | `src/assets/js/agenda.js` | Lògica de l'agenda (la fan servir tant el build com el navegador) |
 | `src/assets/img/` | Logo en SVG, fotos i cartells (webp + jpg) |
-| `src/docs/` | Full d'inscripció de socis **en blanc** |
+| `src/docs/` | Full d'inscripció de socis **en blanc** i estatuts (PDF amb text cercable) |
 
 ## Afegir una activitat
 

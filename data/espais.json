@@ -1,0 +1,112 @@
+{
+  "_info": "Espais del barri que apareixen a /espais, en aquest ordre. Per afegir fotos: posa-les a src/assets/img (versió gran + '-mida' petita, webp i jpg) i afegeix-les a 'fotos'. La primera foto és la principal.",
+  "espais": [
+    {
+      "id": "local",
+      "titol": "El local de l'AVV",
+      "subtitol": "La seu de l'associació",
+      "adreca": "c/ Eduard Marquina, 25-27, entresol",
+      "text": [
+        "La seu de l'associació, a la cantonada amb el carrer Pompeu Fabra, a sobre del restaurant Les Banderes. Hi ha una oficina amb sala de reunions i una sala gran per a activitats, xerrades, tallers i les trobades d'«Una cadira més».",
+        "Hi atenem el veïnat en horari d'obertura: dimarts i dimecres de 17 a 19 h i dijous de 19 a 21 h, excepte festius."
+      ],
+      "avis": "Per entrar al local cal pujar escales, i això el fa difícil per a persones amb mobilitat reduïda o amb cotxets.",
+      "enllac": {
+        "text": "Com reservar el local",
+        "href": "#reserves"
+      },
+      "fotos": [
+        {
+          "img": "local-sala",
+          "petita": "local-sala-800",
+          "w": 1600,
+          "h": 1200,
+          "alt": "La sala gran del local preparada per a una xerrada, amb files de cadires i una pantalla"
+        },
+        {
+          "img": "local-retol",
+          "petita": "local-retol-700",
+          "w": 1200,
+          "h": 900,
+          "alt": "Rètol groc de l'A.V.V. Canyadó a l'entrada del local"
+        }
+      ]
+    },
+    {
+      "id": "pista",
+      "titol": "La Gàbia",
+      "subtitol": "La pista de bàsquet del barri",
+      "adreca": "c/ Eduard Marquina, 18",
+      "text": [
+        "El 24 de juny de 2025 es va reinaugurar la pista després d'una rehabilitació feta per Euroleague Basketball (projecte One Team), BKT i la Fundació Ricky Rubio. L'objectiu era millorar aquesta pista històrica perquè fos més adequada per jugar a bàsquet i un espai més acollidor per al barri.",
+        "És un espai privat d'ús públic, propietat de les comunitats veïnals dels blocs de Sant Jordi. L'AVV en fa el seguiment i treballa amb les persones propietàries i amb l'Ajuntament perquè es mantingui en bon estat."
+      ],
+      "normes": [
+        {
+          "titol": "La brossa, al contenidor",
+          "text": "Tens contenidors passat el jardí, al carrer d'Eduard Marquina."
+        },
+        {
+          "titol": "La bici i el patinet, per aquí",
+          "text": "Puja'ls pel costat del carrer Pompeu Fabra."
+        },
+        {
+          "titol": "Aparca'ls bé",
+          "text": "Encadenats a l'arbre i a la vista."
+        }
+      ],
+      "fotos": [
+        {
+          "img": "pista-panoramica",
+          "petita": "pista-panoramica-900",
+          "w": 1870,
+          "h": 841,
+          "alt": "La Gàbia renovada, amb el terra blau i taronja, envoltada d'arbres i dels blocs del barri"
+        },
+        {
+          "img": "pista-vertical",
+          "petita": "pista-vertical-600",
+          "w": 1000,
+          "h": 1333,
+          "alt": "Vista lateral de la pista amb els edificis de Canyadó al fons"
+        },
+        {
+          "img": "pista-cistella",
+          "petita": "pista-cistella-900",
+          "w": 1800,
+          "h": 1202,
+          "alt": "Una pilota entrant a la cistella, vista des de sota amb el cel blau"
+        },
+        {
+          "img": "pista-bici",
+          "petita": "pista-bici-600",
+          "w": 1000,
+          "h": 1333,
+          "alt": "Una bicicleta aparcada a l'arbre, al costat de la tanca de la pista"
+        }
+      ]
+    },
+    {
+      "id": "masia",
+      "titol": "La Masia de Can Canyadó",
+      "subtitol": "Centre cívic i de cultura tradicional",
+      "text": [
+        "La masia que dona nom al barri està documentada des del 1492. Avui és de l'Ajuntament de Badalona i funciona com a centre cívic i de cultura tradicional. S'hi fan bona part dels tallers del curs i festes com la Castanyada.",
+        "L'AVV hi té un dret parcial d'ús. Si vols fer-hi una activitat que beneficiï el barri, vine a parlar-ne."
+      ],
+      "enllac": {
+        "text": "La història de la masia",
+        "href": "/qui-som#historia"
+      },
+      "fotos": [
+        {
+          "img": "masia",
+          "petita": "masia-800",
+          "w": 1456,
+          "h": 1080,
+          "alt": "La torre de defensa i la casa de la Masia de Can Canyadó, amb la senyera"
+        }
+      ]
+    }
+  ]
+}

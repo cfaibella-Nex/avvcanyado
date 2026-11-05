@@ -8,10 +8,31 @@
 {{header}}
 <main id="contingut">
 
-  <header class="pagina">
-    <h1>Qui som</h1>
-    <p class="entradeta">L'Associació Veïnal de Canyadó treballa des de 1978 per un barri de més de 3.000 habitants més cohesionat, més cuidat i amb més vida.</p>
+  <header class="vel vel--pagina">
+    <picture class="vel__foto">
+      <source type="image/webp" srcset="/assets/img/masia-800.webp 800w, /assets/img/masia.webp 1456w" sizes="100vw">
+      <img src="/assets/img/masia-800.jpg" srcset="/assets/img/masia-800.jpg 800w, /assets/img/masia.jpg 1456w" sizes="100vw" alt="" width="1456" height="1080" fetchpriority="high">
+    </picture>
+    <div class="vel__text">
+      <h1>Qui som</h1>
+      <p class="entradeta">L'Associació Veïnal de Canyadó treballa des de 1978 per un barri de més de 3.000 habitants més cohesionat, més cuidat i amb més vida.</p>
+    </div>
   </header>
+
+  <section class="bloc" id="historia" aria-labelledby="t-historia">
+    <h2 id="t-historia">Història del barri</h2>
+    <p class="entradeta entradeta--petita">Canyadó pren el nom d'una masia que fa més de cinc segles que mira la riera. Al seu voltant hi havia vinyes, guixeres i corderies; avui hi ha un barri viu que ha après a organitzar-se.</p>
+    <ol class="cronologia">
+      <li><span class="cronologia__any">1492</span><div><h3>La masia</h3><p>Primera documentació de Can Canyadó. La torre de defensa, de planta quadrada i tres pisos, és del segle XVI, i l'aspecte actual de la casa ve de les reformes dels segles XVI i XVII.</p></div></li>
+      <li><span class="cronologia__any">1718</span><div><h3>El nom</h3><p>La família Canyadó és propietària de la masia fins aquest any. Ha donat nom a la casa, a la riera i al barri.</p></div></li>
+      <li><span class="cronologia__any">Anys 50</span><div><h3>Neix el barri</h3><p>Es comencen a construir i a organitzar els habitatges del barri actual.</p></div></li>
+      <li><span class="cronologia__any">1974</span><div><h3>Monument local</h3><p>La masia fortificada de Can Canyadó és declarada monument local d'interès historicoartístic.</p></div></li>
+      <li><span class="cronologia__any">1978</span><div><h3>Neix l'associació</h3><p>El 2 de maig es constitueix l'«Asociación de Vecinos del Barrio de Canyadó y Adyacentes de Badalona», inscrita amb el número 3478. Avui és l'Associació Veïnal de Canyadó.</p></div></li>
+      <li><span class="cronologia__any">1987</span><div><h3>Fi de la casa de pagès</h3><p>Can Canyadó deixa de funcionar com a casa de pagès. Avui és de l'Ajuntament i funciona com a centre cívic i de cultura tradicional.</p></div></li>
+      <li><span class="cronologia__any">2025</span><div><h3>La Gàbia renovada</h3><p>El 24 de juny es reinaugura la pista de bàsquet del barri, rehabilitada per Euroleague Basketball, BKT i la Fundació Ricky Rubio.</p></div></li>
+    </ol>
+    <p class="nota">Tens fotos antigues o records del barri? Ens agradaria recollir-los. Escriu a <a href="mailto:avvcanyado@gmail.com">avvcanyado@gmail.com</a>.</p>
+  </section>
 
   <section class="bloc doble" aria-labelledby="t-fem">
     <div>
@@ -56,5 +77,6 @@
 
 </main>
 {{footer}}
+{{js-menu}}
 </body>
 </html>

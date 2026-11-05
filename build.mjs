@@ -18,6 +18,8 @@ const llegeix = (p) => readFileSync(p, 'utf8');
 const partial = (n) => llegeix(join(SRC, 'partials', `${n}.html`));
 const activitats = JSON.parse(llegeix('data/activitats.json'));
 const tallers = JSON.parse(llegeix('data/tallers.json'));
+const espais = JSON.parse(llegeix('data/espais.json'));
+const publicacions = JSON.parse(llegeix('data/publicacions.json'));
 const hoy = avui();
 const { futures, passades } = ocurrencies(activitats.activitats, hoy);
 const versio = Date.now().toString(36);
@@ -58,10 +60,58 @@ function centresHTML() {
   return Object.entries(tallers.centres).map(([curt, llarg]) => `<li><strong>${esc(curt)}</strong>: ${esc(llarg)}</li>`).join('');
 }
 
+const foto = (f, { sizes = '100vw', classe = '', lazy = true, prioritat = false } = {}) => { const pw = Number(f.petita.split('-').pop()) || 900; return `<picture${classe ? ` class="${classe}"` : ''}>
+  <source type="image/webp" srcset="/assets/img/${f.petita}.webp ${pw}w, /assets/img/${f.img}.webp ${f.w}w" sizes="${sizes}">
+  <img src="/assets/img/${f.petita}.jpg" srcset="/assets/img/${f.petita}.jpg ${pw}w, /assets/img/${f.img}.jpg ${f.w}w" sizes="${sizes}" alt="${esc(f.alt)}" width="${f.w}" height="${f.h}"${lazy ? ' loading="lazy"' : ''}${prioritat ? ' fetchpriority="high"' : ''} decoding="async">
+</picture>`; };
+
+function espaisHTML() {
+  return espais.espais.map((e, n) => {
+    const [principal, ...resta] = e.fotos;
+    const text = e.text.map((p) => `<p>${esc(p)}</p>`).join('');
+    const normes = e.normes ? `<h3 class="espai__sub">Entre tots la cuidem</h3><ul class="normes">${e.normes.map((x) => `<li><h4>${esc(x.titol)}</h4><p>${esc(x.text)}</p></li>`).join('')}</ul>` : '';
+    const lateral = resta.length === 1 ? `<figure class="espai__foto">${foto(resta[0], { sizes: '(min-width: 960px) 40vw, 92vw' })}</figure>` : '';
+    const galeria = resta.length > 1 ? `<ul class="galeria galeria--${resta.length}">${resta.map((f) => `<li><a href="/assets/img/${f.img}.jpg" aria-label="${esc(f.alt)} (obre la foto gran)">${foto(f, { sizes: '(min-width: 960px) 30vw, 46vw' })}</a></li>`).join('')}</ul>` : '';
+    return `<section class="espai" id="${e.id}" aria-labelledby="t-${e.id}">
+  <div class="vel vel--espai">
+    ${foto(principal, { sizes: '100vw', classe: 'vel__foto', lazy: n > 0, prioritat: n === 0 })}
+    <div class="vel__text">
+      <p class="vel__sub">${esc(e.subtitol)}</p>
+      <h2 id="t-${e.id}">${esc(e.titol)}</h2>
+      ${e.adreca ? `<p class="vel__adreca">${esc(e.adreca)}</p>` : ''}
+    </div>
+  </div>
+  <div class="espai__cos">
+    <div class="espai__text">${text}${e.avis ? `<p class="avis">${esc(e.avis)}</p>` : ''}${e.enllac ? `<p><a class="enllac-fort" href="${e.enllac.href}">${esc(e.enllac.text)}</a></p>` : ''}</div>
+    <div class="espai__extra">${lateral}${normes}</div>
+  </div>
+  ${galeria}
+</section>`;
+  }).join('\n');
+}
+
+const espaisNavHTML = () => espais.espais.map((e) => `<a href="#${e.id}">${esc(e.titol)}</a>`).join('');
+
+function publicacionsHTML() {
+  const llista = publicacions.publicacions;
+  if (!llista.length) {
+    return `<div class="buit"><p class="buit__titol">Aviat hi trobaràs els llibres de l'AVV</p><p>Estem recopilant les publicacions que ha editat l'associació al llarg dels anys. Mentrestant, pregunta per elles al local.</p></div>`;
+  }
+  return `<ul class="llibres">${llista.map((l) => `<li class="llibre">
+    ${l.portada ? `<img class="llibre__portada" src="/assets/img/${l.portada}.webp" alt="Portada de ${esc(l.titol)}" loading="lazy" width="300" height="420">` : `<div class="llibre__portada llibre__portada--buida" aria-hidden="true">${esc(l.titol)}</div>`}
+    <div class="llibre__info"><h3>${esc(l.titol)}</h3>
+    ${l.autor ? `<p class="llibre__autor">${esc(l.autor)}${l.any ? `, ${esc(l.any)}` : ''}</p>` : ''}
+    ${l.descripcio ? `<p>${esc(l.descripcio)}</p>` : ''}
+    <p class="llibre__preu">${l.estat === 'exhaurit' ? 'Exhaurit' : esc(l.preu || 'Pregunta el preu al local')}</p></div>
+  </li>`).join('')}</ul>`;
+}
+
 const nav = [
+  ['inici', '/', 'Inici'],
   ['activitats', '/activitats', 'Activitats'],
+  ['espais', '/espais', 'Espais'],
+  ['publicacions', '/publicacions', 'Publicacions'],
   ['participa', '/participa', 'Participa'],
-  ['la-gabia', '/la-gabia', 'La Gàbia'],
   ['qui-som', '/qui-som', 'Qui som'],
   ['transparencia', '/transparencia', 'Transparència'],
   ['contacte', '/contacte', 'Contacte'],
@@ -95,11 +145,15 @@ function render(fitxer) {
     '{{agenda:futures}}': llistaHTML(futures, hoy, { ambCartell: true }),
     '{{agenda:passades}}': llistaHTML(passades, hoy, { ambCartell: true }),
     '{{tallers}}': tallersHTML(),
+    '{{espais}}': espaisHTML(),
+    '{{espais-nav}}': espaisNavHTML(),
+    '{{publicacions}}': publicacionsHTML(),
     '{{filtre-tallers}}': filtreHTML(),
     '{{centres}}': centresHTML(),
     '{{curs}}': esc(tallers.curs),
     '{{propers:una-cadira-mes}}': propersUna,
     '{{dades-activitats}}': `<script type="application/json" id="dades-activitats">${JSON.stringify({ activitats: activitats.activitats }).replace(/</g, '\\u003c')}</script>\n<script type="module" src="/assets/js/agenda.js?v=${versio}"></script>`,
+    '{{js-menu}}': `<script type="module" src="/assets/js/menu.js?v=${versio}"></script>`,
     '{{js-tallers}}': `<script type="module" src="/assets/js/tallers.js?v=${versio}"></script>`,
   };
   html = html.replace('{{head}}', head);
