@@ -176,11 +176,11 @@ function publicacionsHTML() {
 
 const nav = [
   ['inici', '/', 'Inici'],
+  ['qui-som', '/qui-som', 'Qui som'],
   ['activitats', '/activitats', 'Activitats'],
   ['espais', '/espais', 'Espais'],
   ['publicacions', '/publicacions', 'Publicacions'],
   ['participa', '/participa', 'Participa'],
-  ['qui-som', '/qui-som', 'Qui som'],
   ['transparencia', '/transparencia', 'Transparència'],
   ['contacte', '/contacte', 'Contacte'],
 ];
