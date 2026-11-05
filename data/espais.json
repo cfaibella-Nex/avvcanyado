@@ -24,11 +24,25 @@
           "alt": "La sala gran del local preparada per a una xerrada, amb files de cadires i una pantalla"
         },
         {
-          "img": "local-retol",
-          "petita": "local-retol-700",
-          "w": 1200,
-          "h": 900,
-          "alt": "Rètol groc de l'A.V.V. Canyadó a l'entrada del local"
+          "img": "local-facana",
+          "petita": "local-facana-700",
+          "w": 1364,
+          "h": 1153,
+          "alt": "Façana del local de l'AVV amb el rètol groc de l'A.V.V. Canyadó, sota els porxos"
+        },
+        {
+          "img": "local-sala-taules",
+          "petita": "local-sala-taules-700",
+          "w": 1446,
+          "h": 1087,
+          "alt": "La sala gran del local amb taules preparades i cadires apilades al costat de la biblioteca"
+        },
+        {
+          "img": "local-sala-tallers",
+          "petita": "local-sala-tallers-700",
+          "w": 1280,
+          "h": 863,
+          "alt": "Sala del local amb taules de cavallet per a tallers, al costat de grans finestrals amb arbres"
         }
       ]
     },

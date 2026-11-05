@@ -73,7 +73,7 @@ function espaisHTML() {
     const text = e.text.map((p) => `<p>${esc(p)}</p>`).join('');
     const normes = e.normes ? `<h3 class="espai__sub">Entre tots la cuidem</h3><ul class="normes">${e.normes.map((x) => `<li><h4>${esc(x.titol)}</h4><p>${esc(x.text)}</p></li>`).join('')}</ul>` : '';
     const lateral = resta.length === 1 ? `<figure class="espai__foto">${foto(resta[0], { sizes: '(min-width: 960px) 40vw, 92vw' })}</figure>` : '';
-    const galeria = resta.length > 1 ? `<ul class="galeria galeria--${resta.length}">${resta.map((f) => `<li><a href="/assets/img/${f.img}.jpg" aria-label="${esc(f.alt)} (obre la foto gran)">${foto(f, { sizes: '(min-width: 960px) 30vw, 46vw' })}</a></li>`).join('')}</ul>` : '';
+    const galeria = resta.length > 1 ? `<ul class="galeria galeria--${resta.length}">${resta.map((f) => `<li><a href="/assets/img/${f.img}.jpg" data-amplia aria-label="${esc(f.alt)} (obre la foto gran)">${foto(f, { sizes: '(min-width: 960px) 30vw, 46vw' })}</a></li>`).join('')}</ul>` : '';
     return `<section class="espai" id="${e.id}" aria-labelledby="t-${e.id}">
   <div class="vel vel--espai">
     ${foto(principal, { sizes: '100vw', classe: 'vel__foto', lazy: n > 0, prioritat: n === 0 })}
