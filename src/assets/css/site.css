@@ -220,6 +220,10 @@ main > .vel { max-width: none; padding-inline: 0; }
 /* ── Una cadira més ── */
 .destacat { display: grid; gap: 2.5rem; align-items: center; }
 .destacat__img img { width: 100%; border-radius: var(--radi); }
+.destacat__img--cartell { justify-self: center; max-width: 26rem; width: 100%; }
+.destacat__img--cartell img { border-radius: 14px; box-shadow: 0 24px 50px -20px rgba(31, 42, 46, 0.45); transform: rotate(-2deg); transition: transform 220ms ease-out; }
+.destacat__img--cartell a:hover img { transform: rotate(0deg) scale(1.01); }
+@media (prefers-reduced-motion: reduce) { .destacat__img--cartell img, .destacat__img--cartell a:hover img { transform: none; } }
 .properes-dates { font-size: 1.15rem; border-top: 1px solid var(--filet); padding-top: 1rem; margin-top: 1.5rem; }
 @media (min-width: 960px) { .destacat { grid-template-columns: 1fr 1fr; gap: 4rem; } }
 

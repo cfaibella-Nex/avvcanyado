@@ -83,14 +83,16 @@ const diaCurt = (s) => fmt({ weekday: 'short' }).format(d(s)).replace('.', '');
 /** Targeta d'activitat: imatge amb la data a sobre i la informació a sota. */
 export function filaHTML(a, hoy, { ambCartell = false } = {}) {
   const dies = diesFins(hoy, a.data);
-  const etiqueta = dies === 0 ? 'Avui' : dies === 1 ? 'Demà' : dies > 0 && dies <= 7 ? 'Aquesta setmana' : '';
+  const diaSem = (new Date(hoy + 'T12:00:00Z').getUTCDay() + 6) % 7; // 0 = dilluns
+  const finsDiumenge = 6 - diaSem;
+  const etiqueta = dies === 0 ? 'Avui' : dies === 1 ? 'Demà' : dies > 1 && dies <= finsDiumenge ? 'Aquesta setmana' : '';
   const img = a.imatge || a.cartell;
   const retrat = !a.imatge && a.cartell;
   const imatge = img
     ? `<img src="/assets/img/${img}.webp" alt="" loading="lazy" decoding="async" class="targeta__img${retrat ? ' targeta__img--cartell' : ''}">`
     : `<span class="targeta__img targeta__img--buida" aria-hidden="true"></span>`;
   const meta = [
-    horari(a) ? `<li>${ICO.hora}<span>${esc(horari(a))}</span></li>` : '',
+    horari(a) ? `<li>${ICO.hora}<span>${esc(horari(a))}</span></li>` : (a.lloc ? `<li>${ICO.hora}<span>Horari per confirmar</span></li>` : ''),
     a.lloc ? `<li>${ICO.lloc}<span>${esc(a.lloc)}</span></li>` : '',
   ].join('') || `<li>${ICO.hora}<span>Horari i lloc per confirmar</span></li>`;
   const xips = [
