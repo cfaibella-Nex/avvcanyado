@@ -40,8 +40,12 @@ HTML, CSS i JS sense dependències. Un sol script (`build.mjs`) munta les pàgin
 
 3. Fes commit: Vercel la publica en un minut.
 
-Les activitats que es repeteixen (com «Una cadira més») fan servir `"tipus": "periodica"` i una `regla`
-(`diaSetmana`: 1 = dilluns … 4 = dijous; `ordinals`: [1, 3] = primer i tercer del mes).
+Les activitats que es repeteixen (com «Una cadira més») fan servir `"tipus": "periodica"`. Pots indicar-ne les dates
+concretes amb `"dates": ["2026-11-12", "2026-11-26", ...]`, o bé una `regla` fixa (`diaSetmana`: 1 = dilluns … 4 = dijous;
+`ordinals`: [1, 3] = primer i tercer del mes). Si hi ha `dates`, la regla no es fa servir. **Recorda afegir-hi les dates
+noves abans que s'acabin les que hi ha.**
+
+Cada taller de `data/tallers.json` té una categoria (`cat`: calma, energia, ball, art), que defineix el color, la icona i el filtre.
 
 ## Local
 

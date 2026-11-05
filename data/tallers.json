@@ -2,35 +2,247 @@
   "_info": "Tallers organitzats per l'AVV Canyadó, curs 2026-27. Font: full 'Tallers AVV' (revisat el 19-10-2026). 'dies': 1 = dilluns ... 5 = divendres.",
   "curs": "2026-27",
   "tallers": [
-    { "nom": "Pilates (matí)", "dies": [3], "hora": "9.15–10", "centre": "Can Canyadó" },
-    { "nom": "Dibuix", "dies": [3], "hora": "10–11.30", "centre": "Can Cabanyes" },
-    { "nom": "Circ per a adults", "dies": [1], "hora": "10.30–12", "centre": "Can Canyadó" },
-    { "nom": "Il·lustració", "dies": [2], "hora": "12.10–13.40", "centre": "Can Pepus" },
-    { "nom": "Conversa en anglès", "dies": [1, 3], "hora": "17–18", "centre": "Can Canyadó" },
-    { "nom": "Sevillanes (avançat)", "dies": [2], "hora": "17–18", "centre": "Can Canyadó" },
-    { "nom": "Txi kung", "dies": [4], "hora": "17–18", "centre": "Can Canyadó" },
-    { "nom": "Sevillanes", "dies": [4], "hora": "17.30–18.30", "centre": "Can Cabanyes" },
-    { "nom": "Pilates (tarda)", "dies": [1], "hora": "17.35–18.20", "centre": "Can Canyadó" },
-    { "nom": "Pilates (tarda)", "dies": [4], "hora": "17.55–18.40", "centre": "Can Canyadó" },
-    { "nom": "Sevillanes", "dies": [2], "hora": "18–19", "centre": "Can Canyadó" },
-    { "nom": "Tai-txí", "dies": [4], "hora": "18–19", "centre": "Can Canyadó" },
-    { "nom": "Ioguilates", "dies": [1], "hora": "18.25–19.25", "centre": "Can Canyadó" },
-    { "nom": "Hatha ioga", "dies": [3], "hora": "18.25–19.25", "centre": "Can Canyadó" },
-    { "nom": "Cardiobox", "dies": [1], "hora": "18.30–19.15", "centre": "Can Canyadó" },
-    { "nom": "Z-dance", "dies": [4], "hora": "18.50–19.35", "centre": "Can Canyadó" },
-    { "nom": "Z-dance", "dies": [2], "hora": "19–19.45", "centre": "Can Canyadó" },
-    { "nom": "Sevillanes", "dies": [2], "hora": "19–20", "centre": "Local de l'AVV" },
-    { "nom": "Sevillanes (inicial)", "dies": [4], "hora": "19–20", "centre": "Can Pepus" },
-    { "nom": "Hatha ioga", "dies": [1], "hora": "19.30–20.30", "centre": "Can Canyadó" },
-    { "nom": "Fitness zumba", "dies": [1, 3], "hora": "19.30–20.30", "centre": "Can Canyadó" },
-    { "nom": "Ioga restauratiu", "dies": [3], "hora": "19.30–20.30", "centre": "Can Canyadó" },
-    { "nom": "Workout", "dies": [4], "hora": "19.45–20.30", "centre": "Can Canyadó" },
-    { "nom": "Sevillanes (avançat)", "dies": [4], "hora": "20–21", "centre": "Can Pepus" }
+    {
+      "nom": "Pilates (matí)",
+      "dies": [
+        3
+      ],
+      "hora": "9.15–10",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Dibuix",
+      "dies": [
+        3
+      ],
+      "hora": "10–11.30",
+      "centre": "Can Cabanyes",
+      "cat": "art"
+    },
+    {
+      "nom": "Circ per a adults",
+      "dies": [
+        1
+      ],
+      "hora": "10.30–12",
+      "centre": "Can Canyadó",
+      "cat": "energia"
+    },
+    {
+      "nom": "Il·lustració",
+      "dies": [
+        2
+      ],
+      "hora": "12.10–13.40",
+      "centre": "Can Pepus",
+      "cat": "art"
+    },
+    {
+      "nom": "Conversa en anglès",
+      "dies": [
+        1,
+        3
+      ],
+      "hora": "17–18",
+      "centre": "Can Canyadó",
+      "cat": "art"
+    },
+    {
+      "nom": "Sevillanes (avançat)",
+      "dies": [
+        2
+      ],
+      "hora": "17–18",
+      "centre": "Can Canyadó",
+      "cat": "ball"
+    },
+    {
+      "nom": "Txi kung",
+      "dies": [
+        4
+      ],
+      "hora": "17–18",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Sevillanes",
+      "dies": [
+        4
+      ],
+      "hora": "17.30–18.30",
+      "centre": "Can Cabanyes",
+      "cat": "ball"
+    },
+    {
+      "nom": "Pilates (tarda)",
+      "dies": [
+        1
+      ],
+      "hora": "17.35–18.20",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Pilates (tarda)",
+      "dies": [
+        4
+      ],
+      "hora": "17.55–18.40",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Sevillanes",
+      "dies": [
+        2
+      ],
+      "hora": "18–19",
+      "centre": "Can Canyadó",
+      "cat": "ball"
+    },
+    {
+      "nom": "Tai-txí",
+      "dies": [
+        4
+      ],
+      "hora": "18–19",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Ioguilates",
+      "dies": [
+        1
+      ],
+      "hora": "18.25–19.25",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Hatha ioga",
+      "dies": [
+        3
+      ],
+      "hora": "18.25–19.25",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Cardiobox",
+      "dies": [
+        1
+      ],
+      "hora": "18.30–19.15",
+      "centre": "Can Canyadó",
+      "cat": "energia"
+    },
+    {
+      "nom": "Z-dance",
+      "dies": [
+        4
+      ],
+      "hora": "18.50–19.35",
+      "centre": "Can Canyadó",
+      "cat": "ball"
+    },
+    {
+      "nom": "Z-dance",
+      "dies": [
+        2
+      ],
+      "hora": "19–19.45",
+      "centre": "Can Canyadó",
+      "cat": "ball"
+    },
+    {
+      "nom": "Sevillanes",
+      "dies": [
+        2
+      ],
+      "hora": "19–20",
+      "centre": "Local de l'AVV",
+      "cat": "ball"
+    },
+    {
+      "nom": "Sevillanes (inicial)",
+      "dies": [
+        4
+      ],
+      "hora": "19–20",
+      "centre": "Can Pepus",
+      "cat": "ball"
+    },
+    {
+      "nom": "Hatha ioga",
+      "dies": [
+        1
+      ],
+      "hora": "19.30–20.30",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Fitness zumba",
+      "dies": [
+        1,
+        3
+      ],
+      "hora": "19.30–20.30",
+      "centre": "Can Canyadó",
+      "cat": "energia"
+    },
+    {
+      "nom": "Ioga restauratiu",
+      "dies": [
+        3
+      ],
+      "hora": "19.30–20.30",
+      "centre": "Can Canyadó",
+      "cat": "calma"
+    },
+    {
+      "nom": "Workout",
+      "dies": [
+        4
+      ],
+      "hora": "19.45–20.30",
+      "centre": "Can Canyadó",
+      "cat": "energia"
+    },
+    {
+      "nom": "Sevillanes (avançat)",
+      "dies": [
+        4
+      ],
+      "hora": "20–21",
+      "centre": "Can Pepus",
+      "cat": "ball"
+    }
   ],
   "centres": {
     "Can Canyadó": "Masia de Can Canyadó (CCT)",
     "Can Cabanyes": "Centre Cívic Can Cabanyes",
     "Can Pepus": "Casal de la Solidaritat Can Pepus",
     "Local de l'AVV": "Seu de l'AVV, c/ Eduard Marquina, 25-27"
+  },
+  "categories": {
+    "calma": {
+      "nom": "Cos i calma",
+      "icona": "fulla"
+    },
+    "energia": {
+      "nom": "Energia",
+      "icona": "llamp"
+    },
+    "ball": {
+      "nom": "Ball",
+      "icona": "nota"
+    },
+    "art": {
+      "nom": "Art i idiomes",
+      "icona": "llapis"
+    }
   }
 }

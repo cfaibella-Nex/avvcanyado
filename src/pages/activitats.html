@@ -29,8 +29,10 @@
     <div class="bloc__cap">
       <h2 id="t-tallers">Tallers del curs {{curs}}</h2>
     </div>
-    <p class="nota">Tallers organitzats per l'AVV durant tot el curs. Per apuntar-t'hi, pregunta al centre on es fa o passa pel local de l'AVV.</p>
-    <div class="setmana">
+    <p class="entradeta entradeta--petita">Mou-te, balla, dibuixa o practica l'anglès a prop de casa. Hi ha tallers cada dia de dilluns a dijous, al matí i a la tarda.</p>
+    <p class="com-apuntar">Per apuntar-t'hi, pregunta al centre on es fa el taller o passa pel local de l'AVV.</p>
+    {{filtre-tallers}}
+    <div class="setmana" data-filtre="tots">
 {{tallers}}
     </div>
     <details class="llegenda">
@@ -49,5 +51,6 @@
 </main>
 {{footer}}
 {{dades-activitats}}
+{{js-tallers}}
 </body>
 </html>

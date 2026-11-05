@@ -48,14 +48,20 @@ export function horari(a) {
   return a.horaFi ? `de ${a.hora} a ${a.horaFi} h` : `a les ${a.hora} h`;
 }
 
+/** Properes dates d'una activitat periòdica: dates concretes si n'hi ha, si no la regla. */
+export function datesPeriodica(a, hoy, quantes = 2) {
+  if (Array.isArray(a.dates)) return a.dates.filter((s) => s >= hoy).sort().slice(0, quantes);
+  return properesDates(a.regla, hoy, quantes);
+}
+
 /** Converteix el fitxer d'activitats en ocurrències amb data, ja ordenades. */
 export function ocurrencies(activitats, hoy) {
   const futures = [];
   const passades = [];
   for (const a of activitats) {
     if (a.tipus === 'periodica') {
-      const [data, ...seguents] = properesDates(a.regla, hoy, 2);
-      futures.push({ ...a, data, seguents });
+      const [data, ...seguents] = datesPeriodica(a, hoy, 2);
+      if (data) futures.push({ ...a, data, seguents });
     } else if (a.data >= hoy) futures.push(a);
     else passades.push(a);
   }
@@ -110,7 +116,8 @@ if (typeof document !== 'undefined') {
     document.querySelectorAll('[data-propers-dies]').forEach((el) => {
       const a = activitats.find((x) => x.id === el.dataset.propersDies);
       if (!a) return;
-      const dates = properesDates(a.regla, hoy, 2);
+      const dates = datesPeriodica(a, hoy, 2);
+      if (!dates.length) return;
       el.textContent = dates.map((s) => (s === hoy ? `avui, ${diaMes(s)}` : dataLlarga(s))).join(' i ');
     });
   }

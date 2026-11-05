@@ -6,13 +6,21 @@
       "tipus": "periodica",
       "titol": "Una cadira més",
       "subtitol": "Tardeos veïnals",
-      "regla": { "diaSetmana": 4, "ordinals": [1, 3], "text": "1r i 3r dijous de cada mes" },
+      "regla": {
+        "text": "dos dijous al mes"
+      },
       "hora": "17.30",
       "horaFi": "19.30",
       "lloc": "Seu de l'AVV, c/ Eduard Marquina, 25-27",
       "descripcio": "Berenars, participació ciutadana, jocs de taula, contacontes, xerrades i tallers. Un espai obert a tothom, de totes les edats, per conèixer el veïnat i fer barri. Amb el suport de NexSocial.",
       "cartell": "cartell-una-cadira-mes",
-      "preu": "Gratuït"
+      "preu": "Gratuït",
+      "dates": [
+        "2026-11-12",
+        "2026-11-26",
+        "2026-12-03",
+        "2026-12-17"
+      ]
     },
     {
       "id": "convivencies-nadal-2026",
