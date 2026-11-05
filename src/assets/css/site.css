@@ -1109,3 +1109,26 @@ main > .cinta-logos { max-width: none; padding-inline: 0; }
 .entitat__inicials { width: 7.5rem; height: 5rem; aspect-ratio: auto; border-radius: 12px; font-size: 1.4rem; }
 .entitat__logo { width: 7.5rem; height: 5rem; padding: 0.4rem; }
 @media (max-width: 480px) { .entitat { grid-template-columns: 1fr; } }
+
+/* Formulari: consentiment i botó en una sola línia */
+.formulari__final { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; padding-top: 0.25rem; }
+.formulari__final .camp--check { display: flex; align-items: center; gap: 0.6rem; }
+.formulari__final .camp--check input { margin: 0; }
+.formulari__final button { cursor: pointer; font: inherit; font-weight: 700; }
+.formulari__final button:disabled { opacity: 0.6; cursor: wait; }
+.formulari__info { font-size: 0.78rem; line-height: 1.5; margin-top: -0.25rem; }
+.formulari__estat:empty { display: none; }
+.formulari--revisat .formulari__final input:invoked, .formulari--revisat .formulari__final input:invalid { outline: 2px solid #B3261E; outline-offset: 2px; }
+
+/* ── Participa: banner de la masia a tota l'amplada amb targeta de vidre ── */
+.soci-banda { min-height: clamp(34rem, 52vw, 44rem); display: flex; align-items: center; }
+.soci-banda__foto { position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; z-index: -1; }
+.soci-banda__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40% !important; -webkit-mask-image: none !important; mask-image: none !important; }
+.soci-banda__foto::after { background: linear-gradient(90deg, rgba(31, 42, 46, 0.62) 0%, rgba(31, 42, 46, 0.35) 40%, rgba(122, 59, 46, 0.12) 75%, rgba(122, 59, 46, 0.05) 100%), linear-gradient(180deg, transparent 80%, var(--crema) 100%) !important; }
+.soci-banda__dins { width: 100%; margin-top: 0 !important; padding-block: clamp(3rem, 7vw, 5rem); }
+.soci-banda__targeta { background: rgba(255, 252, 247, 0.62); -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgba(255, 252, 247, 0.6); border-top: 5px solid var(--granat); border-radius: 0 0 22px 22px; box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.6); }
+@media (max-width: 859px) {
+  .soci-banda { min-height: 0; }
+  .soci-banda__foto img { object-position: 70% 30% !important; }
+  .soci-banda__dins { padding-block: 9rem 2.5rem; }
+}
