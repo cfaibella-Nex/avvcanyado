@@ -737,3 +737,40 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
   .cronologia--zigzag .cronologia__foto--dalt img { object-position: 50% 12% !important; }
 }
 @media (max-width: 899px) { .cronologia__foto--dalt img { object-position: 50% 15%; } }
+
+/* ── Inici: més quadrats que es mouen i marca d'aigua del logo ── */
+.heroi { position: relative; isolation: isolate; clip-path: inset(0 -100vmax); }
+.heroi__marca { position: absolute; z-index: -2; inset: 0 calc(50% - 50vw); pointer-events: none; overflow: hidden; }
+.heroi__marca span { position: absolute; left: -10%; right: -10%; height: clamp(6rem, 11vw, 9rem); background: url(/assets/img/logo.svg) repeat-x 0 50% / auto 100%; opacity: 0.07; }
+.heroi__marca span:first-child { top: 6%; transform: rotate(-7deg); }
+.heroi__marca span:last-child { bottom: 4%; transform: rotate(5deg); background-position: 45% 50%; opacity: 0.06; }
+@media (prefers-reduced-motion: no-preference) {
+  .heroi__marca span:first-child { animation: marca-a 60s linear infinite; }
+  .heroi__marca span:last-child { animation: marca-b 70s linear infinite; }
+  @keyframes marca-a { to { background-position: -100rem 50%; } }
+  @keyframes marca-b { to { background-position: calc(45% + 100rem) 50%; } }
+}
+
+.marc__extra { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.marc__extra--1 { border: 2px solid var(--ocre); transform: rotate(7deg) scale(1.04); opacity: 0.85; }
+.marc__extra--2 { border: 1.5px solid var(--granat); transform: rotate(-9deg) scale(0.93); opacity: 0.45; }
+.marc__extra--3 { inset: 6% -4% -5% 8%; z-index: -2; background: var(--granat-clar); transform: rotate(-2.5deg); }
+.marc:not(.heroi__foto) .marc__extra { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .heroi .marc__extra--1 { animation: gira-c 1100ms 220ms cubic-bezier(.2, .7, .2, 1) both, balanceja-1 9s 1.4s ease-in-out infinite alternate; }
+  .heroi .marc__extra--2 { animation: gira-d 1100ms 320ms cubic-bezier(.2, .7, .2, 1) both, balanceja-2 11s 1.5s ease-in-out infinite alternate; }
+  .heroi .marc__extra--3 { animation: entra-fons 900ms 60ms cubic-bezier(.2, .7, .2, 1) both; }
+  .heroi .marc::before { animation: gira-a 900ms cubic-bezier(.2, .7, .2, 1) both, balanceja-a 10s 1s ease-in-out infinite alternate; }
+  @keyframes gira-c { from { transform: rotate(0) scale(0.9); opacity: 0; } to { transform: rotate(7deg) scale(1.04); opacity: 0.85; } }
+  @keyframes gira-d { from { transform: rotate(0) scale(1.05); opacity: 0; } to { transform: rotate(-9deg) scale(0.93); opacity: 0.45; } }
+  @keyframes entra-fons { from { transform: translate(-1.5rem, 1.5rem) rotate(0); opacity: 0; } to { transform: rotate(-2.5deg); opacity: 1; } }
+  @keyframes balanceja-1 { from { transform: rotate(7deg) scale(1.04); } to { transform: rotate(5deg) scale(1.05); } }
+  @keyframes balanceja-2 { from { transform: rotate(-9deg) scale(0.93); } to { transform: rotate(-7deg) scale(0.94); } }
+  @keyframes balanceja-a { from { transform: rotate(-5deg); } to { transform: rotate(-3.5deg); } }
+}
+.heroi__marca span:first-child { opacity: 0.055; }
+@media (max-width: 959px) {
+  .heroi { overflow: clip; clip-path: none; }
+  .heroi__marca { inset: 0; }
+  .heroi .heroi__foto { margin-inline: 0.75rem; }
+}
