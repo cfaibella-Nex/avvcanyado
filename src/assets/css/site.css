@@ -1156,3 +1156,15 @@ main > .cinta-logos { max-width: none; padding-inline: 0; }
 @media (max-width: 959px) { .heroi__antic { background-size: cover; -webkit-mask-image: none; mask-image: none; } }
 /* Participa: banner amb la foto real de la masia */
 .soci-banda__foto img { object-position: 62% 50% !important; }
+/* Senefa de logos: tot el bloc, de punta a punta, i més gran */
+.fons--logos { overflow: visible; }
+.fons__logos span { height: clamp(8rem, 14vw, 12rem); }
+.fons__logos span:first-child { top: 2%; }
+.fons__logos span:last-child { bottom: 4%; }
+@media (max-width: 959px) { .fons--logos { overflow: clip; } }
+
+/* Participa: capçalera amb el veïnat de paper */
+.vel--participa { margin-bottom: 0; }
+.vel--participa .vel__foto img { object-position: 50% 45%; }
+.vel--participa::after { background: linear-gradient(100deg, rgba(31, 42, 46, 0.88) 0%, rgba(31, 42, 46, 0.6) 45%, rgba(122, 59, 46, 0.25) 100%); }
+.vel--participa .vel__text { padding-block: clamp(5rem, 12vw, 8.5rem) clamp(3rem, 7vw, 5rem); }
