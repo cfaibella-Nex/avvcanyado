@@ -21,7 +21,7 @@
         "2026-12-03",
         "2026-12-17"
       ],
-      "imatge": "una-cadira-mes-il-700"
+      "imatge": "una-cadira-mes-collage-700"
     },
     {
       "id": "convivencies-nadal-2026",
@@ -33,7 +33,19 @@
       "descripcio": "Ens retrobem per celebrar les festes amb el veïnat. Aviat publicarem l'horari i el programa.",
       "cartell": null,
       "pendent": true,
-      "imatge": "nadal-il-700"
+      "imatge": "convivencies-nadal-700"
+    },
+    {
+      "id": "fira-nadal-2026",
+      "tipus": "esdeveniment",
+      "titol": "Fira de Nadal",
+      "data": "2026-12-20",
+      "hora": null,
+      "lloc": null,
+      "descripcio": "La fira de Nadal del barri. Aviat publicarem l'horari, el lloc i les parades.",
+      "cartell": null,
+      "imatge": "fira-nadal-700",
+      "pendent": true
     },
     {
       "id": "canyaween-2026",
