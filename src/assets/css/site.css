@@ -849,3 +849,56 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
   .heroi__foto { margin-bottom: 5.5rem; }
 }
 @media (prefers-reduced-motion: reduce) { .pila__f--principal, .pila__f--e, .pila__f--d { transition: none; } }
+
+/* ── Inici centrat: títol sobri, foto al mig i les crides als costats ── */
+.heroi--centre { grid-template-columns: 1fr !important; gap: clamp(2.5rem, 5vw, 3.5rem); text-align: center; }
+.heroi--centre .heroi__text { display: grid; justify-items: center; }
+.heroi--centre .heroi__rotul { justify-content: center; color: var(--granat); font-size: 0.8rem; letter-spacing: 0.16em; }
+.heroi--centre h1 { max-width: 14ch; margin-inline: auto; font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.02; letter-spacing: -0.03em; color: var(--tinta); }
+.heroi--centre .entradeta { margin-inline: auto; max-width: 36em; color: var(--tinta); }
+.heroi__escena { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 2rem; }
+.heroi__escena .heroi__foto { width: min(100%, 40rem); }
+@media (min-width: 960px) {
+  .heroi__escena { grid-template-columns: 1fr minmax(0, 38rem) 1fr; align-items: center; gap: 3rem; }
+  .heroi__cta--e { justify-self: end; }
+  .heroi__cta--d { justify-self: start; }
+  .heroi__escena .heroi__foto { width: 100%; }
+}
+@media (max-width: 959px) {
+  .heroi__escena { grid-template-areas: "foto" "e" "d"; }
+  .heroi__escena .heroi__foto { grid-area: foto; }
+  .heroi__cta--e { grid-area: e; }
+  .heroi__cta--d { grid-area: d; }
+}
+/* Tres fotos que surten: més grans, en ventall cap amunt i als costats */
+.pila__f--a { position: absolute; z-index: 1; inset: 8% 8%; transition: transform 600ms cubic-bezier(.2, .7, .2, 1), opacity 400ms; box-shadow: 0 24px 50px -18px rgba(31, 42, 46, 0.55); border: 6px solid var(--paper); border-radius: 6px; background: var(--paper); opacity: 0; transform: rotate(-2deg); }
+.pila__f--a img { height: 100%; aspect-ratio: auto; }
+.heroi--centre .heroi__foto:hover .pila__f--e, .heroi--centre .heroi__foto:focus-within .pila__f--e { opacity: 1; transform: translate(-58%, -10%) rotate(-11deg) scale(0.74); }
+.heroi--centre .heroi__foto:hover .pila__f--a, .heroi--centre .heroi__foto:focus-within .pila__f--a { opacity: 1; transform: translate(0, -46%) rotate(-3deg) scale(0.7); }
+.heroi--centre .heroi__foto:hover .pila__f--d, .heroi--centre .heroi__foto:focus-within .pila__f--d { opacity: 1; transform: translate(58%, -4%) rotate(10deg) scale(0.74); }
+.heroi--centre .heroi__foto:hover .pila__f--principal { transform: scale(1.04) translateY(6%); }
+@media (hover: none), (max-width: 959px) {
+  .heroi--centre .pila__f--e { opacity: 1; transform: translate(-34%, 56%) rotate(-9deg) scale(0.52); }
+  .heroi--centre .pila__f--a { opacity: 1; transform: translate(0, 66%) rotate(2deg) scale(0.5); }
+  .heroi--centre .pila__f--d { opacity: 1; transform: translate(34%, 58%) rotate(8deg) scale(0.52); }
+  .heroi--centre .heroi__foto { margin-bottom: 7rem; }
+}
+.heroi__cta { position: relative; z-index: 5; }
+.pila__f--a img { object-position: 50% 62%; }
+@media (min-width: 960px) {
+  .heroi__escena { grid-template-columns: 1fr minmax(0, 34rem) 1fr; gap: 4.5rem; }
+  .heroi--centre .heroi__foto:hover .pila__f--e, .heroi--centre .heroi__foto:focus-within .pila__f--e { transform: translate(-50%, -8%) rotate(-10deg) scale(0.7); }
+  .heroi--centre .heroi__foto:hover .pila__f--d, .heroi--centre .heroi__foto:focus-within .pila__f--d { transform: translate(50%, -2%) rotate(9deg) scale(0.7); }
+  .heroi--centre .heroi__foto:hover .pila__f--a, .heroi--centre .heroi__foto:focus-within .pila__f--a { transform: translate(0, -44%) rotate(-3deg) scale(0.68); }
+}
+@media (max-width: 959px) {
+  .heroi--centre .heroi__foto { margin-bottom: 3.5rem; }
+  .heroi__escena { grid-template-areas: "foto foto" "e d"; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 1.5rem 1.75rem; }
+}
+.heroi__cta--d { padding: 0.6rem 1.2rem; border: 1.5px solid var(--tinta); border-radius: 999px; background: var(--paper); }
+.heroi__cta--d:hover { border-color: var(--granat); }
+@media (min-width: 960px) {
+  .heroi--centre .heroi__foto:hover .pila__f--a, .heroi--centre .heroi__foto:focus-within .pila__f--a { transform: translate(0, -60%) rotate(-3deg) scale(0.62); }
+  .pila__f--a img { object-position: 50% 45%; }
+  .heroi--centre .heroi__foto { margin-top: 2rem; }
+}
