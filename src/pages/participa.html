@@ -13,19 +13,29 @@
     <p class="entradeta">L'AVV funciona gràcies a la gent del barri: les quotes, les idees i les mans de qui s'hi implica.</p>
   </header>
 
-  <section class="bloc doble" id="soci" aria-labelledby="t-soci">
-    <div>
-      <h2 id="t-soci">Fes-te soci/sòcia</h2>
-      <p class="xifra"><span>10 €</span> l'any</p>
-      <p>La quota va de l'1 de gener al 31 de desembre i és la mateixa sigui quin sigui el mes en què t'apuntis.</p>
-      <h3>Què hi guanyes</h3>
-      <ul class="llista">
-        <li>Veu i vot a l'assemblea general.</li>
-        <li>Pots reservar el local per a activitats.</li>
-        <li>Fas possible una associació més forta davant l'Ajuntament.</li>
-      </ul>
+  <section class="soci-banda" id="soci" aria-labelledby="t-soci">
+    <picture class="soci-banda__foto">
+      <source type="image/webp" srcset="/assets/img/soci-masia-800.webp 800w, /assets/img/soci-masia.webp 1254w" sizes="(min-width: 860px) 100vw, 100vw">
+      <img src="/assets/img/soci-masia-800.jpg" srcset="/assets/img/soci-masia-800.jpg 800w, /assets/img/soci-masia.jpg 1254w" sizes="100vw" alt="" width="1254" height="1254" fetchpriority="high">
+    </picture>
+    <div class="soci-banda__dins">
+      <div class="soci-banda__targeta">
+        <h2 id="t-soci">Fes-te soci/sòcia</h2>
+        <p class="xifra"><span>10 €</span> l'any</p>
+        <p>La quota va de l'1 de gener al 31 de desembre i és la mateixa sigui quin sigui el mes en què t'apuntis.</p>
+        <h3>Què hi guanyes</h3>
+        <ul class="llista">
+          <li>Veu i vot a l'assemblea general.</li>
+          <li>Pots reservar el local per a activitats.</li>
+          <li>Fas possible una associació més forta davant l'Ajuntament.</li>
+        </ul>
+        <p><a class="boto" href="#apuntar">Com apuntar-t'hi</a></p>
+      </div>
     </div>
-    <div class="caixa">
+  </section>
+
+  <section class="bloc" id="apuntar" aria-label="Com apuntar-t'hi">
+    <div class="caixa caixa--estreta">
       <h3>Com apuntar-t'hi</h3>
       <ol class="passos">
         <li>Descarrega el full d'inscripció i omple'l. Si no pots imprimir-lo, te'l donem al local.</li>

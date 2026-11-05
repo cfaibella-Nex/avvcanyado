@@ -250,6 +250,7 @@ function render(fitxer, text = null) {
     '{{propers:una-cadira-mes}}': propersUna,
     '{{dades-activitats}}': `<script type="application/json" id="dades-activitats">${JSON.stringify({ activitats: activitats.activitats }).replace(/</g, '\\u003c')}</script>\n<script type="module" src="/assets/js/agenda.js?v=${versio}"></script>`,
     '{{js-menu}}': `<script type="module" src="/assets/js/menu.js?v=${versio}"></script>\n<script type="module" src="/assets/js/amplia.js?v=${versio}"></script>`,
+    '{{js-contacte}}': `<script type="module" src="/assets/js/contacte.js?v=${versio}"></script>`,
     '{{js-tallers}}': `<script type="module" src="/assets/js/tallers.js?v=${versio}"></script>`,
   };
   html = html.replace('{{head}}', head);

@@ -40,9 +40,55 @@
     <p class="nota"><a href="https://www.openstreetmap.org/?mlat=41.45672&amp;mlon=2.25811#map=18/41.45672/2.25811" rel="noopener">Obre el mapa a pantalla completa</a> · Mapa: © col·laboradors d'OpenStreetMap.</p>
   </section>
 
+  <section class="bloc formulari-bloc" id="escriu" aria-labelledby="t-formulari">
+    <div class="formulari-cap">
+      <h2 id="t-formulari">Envia'ns un missatge</h2>
+      <p>Dubtes, propostes, una incidència al barri o ganes de col·laborar. Et respondrem per correu.</p>
+    </div>
+    <form class="formulari" action="/api/contacte" method="post" data-contacte novalidate>
+      <div class="camp">
+        <label for="f-nom">Nom</label>
+        <input id="f-nom" name="nom" type="text" autocomplete="name" maxlength="100" required>
+      </div>
+      <div class="camp">
+        <label for="f-correu">Correu electrònic</label>
+        <input id="f-correu" name="correu" type="email" autocomplete="email" maxlength="200" required>
+      </div>
+      <div class="camp camp--ample">
+        <label for="f-tema">Tema</label>
+        <select id="f-tema" name="tema">
+          <option>Informació general</option>
+          <option>Fer-me soci/sòcia</option>
+          <option>Proposar una activitat</option>
+          <option>Incidència al barri</option>
+          <option>Reservar el local</option>
+          <option>Altres</option>
+        </select>
+      </div>
+      <div class="camp camp--ample">
+        <label for="f-missatge">Missatge</label>
+        <textarea id="f-missatge" name="missatge" rows="6" minlength="10" maxlength="4000" required></textarea>
+      </div>
+      <div class="camp camp--parany" aria-hidden="true">
+        <label for="f-web">No omplis aquest camp</label>
+        <input id="f-web" name="web" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" name="t" value="">
+      <div class="camp camp--ample camp--check">
+        <input id="f-consentiment" name="consentiment" type="checkbox" value="si" required>
+        <label for="f-consentiment">He llegit la <a href="/privacitat">política de privacitat</a> i accepto que l'AVV faci servir aquestes dades per respondre'm.</label>
+      </div>
+      <p class="formulari__info camp--ample"><strong>Protecció de dades.</strong> Responsable: Associació Veïnal de Canyadó. Finalitat: respondre el teu missatge. Base: el teu consentiment. No cedim les dades a ningú; el correu passa pel servei de Gmail. Pots accedir-hi, rectificar-les o suprimir-les escrivint a avvcanyado@gmail.com. <a href="/privacitat">Més informació</a>.</p>
+      <div class="camp--ample formulari__peu">
+        <button class="boto" type="submit">Envia el missatge</button>
+        <p class="formulari__estat" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+
   <section class="bloc doble" aria-labelledby="t-escriu">
     <div>
-      <h2 id="t-escriu">Escriu-nos o truca'ns</h2>
+      <h2 id="t-escriu">Altres maneres de contactar</h2>
       <ul class="contacte">
         <li><span>Correu</span><a href="mailto:avvcanyado@gmail.com">avvcanyado@gmail.com</a></li>
         <li><span>Telèfon</span><a href="tel:+34934643680">93 464 36 80</a></li>
@@ -63,5 +109,6 @@
 </main>
 {{footer}}
 {{js-menu}}
+{{js-contacte}}
 </body>
 </html>
