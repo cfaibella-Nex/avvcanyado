@@ -1,0 +1,4 @@
+{
+  "_info": "Notícies i blog de l'AVV (es veuen a /publicacions i cada una a /noticies/<slug>). Camps: slug (minúscules i guions, únic), titol, data (AAAA-MM-DD), tipus ('noticia' | 'blog' | 'cronica' | 'avis'), resum (1-2 frases), text (paràgrafs separats per una línia en blanc; admet **negreta**, *cursiva*, [enllaç](https://...) i '## Subtítol'), imatge (nom a src/assets/img, opcional), alt (descripció de la imatge), autor (opcional), esborrany (true = no es publica).",
+  "noticies": []
+}

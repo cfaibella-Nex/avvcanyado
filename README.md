@@ -14,6 +14,7 @@ HTML, CSS i JS sense dependències. Un sol script (`build.mjs`) munta les pàgin
 | `data/tallers.json` | Tallers setmanals del curs |
 | `data/espais.json` | **Espais** (local, pista, masia…): textos i fotos. Per afegir fotos o espais nous |
 | `data/publicacions.json` | **Llibres** de l'AVV (títol, autor, any, preu, portada) |
+| `data/noticies.json` | **Notícies i blog**. Cada entrada genera la seva pàgina a `/noticies/<slug>` |
 | `src/pages/` | Una pàgina per fitxer, amb un bloc `<!--meta {...} -->` a dalt |
 | `src/partials/` | Capçalera, peu i `<head>` comuns |
 | `src/assets/css/site.css` | Estil, amb la marca unificada (granat #7A3B2E sobre crema) |
@@ -48,6 +49,25 @@ concretes amb `"dates": ["2026-11-12", "2026-11-26", ...]`, o bé una `regla` fi
 noves abans que s'acabin les que hi ha.**
 
 Cada taller de `data/tallers.json` té una categoria (`cat`: calma, energia, ball, art), que defineix el color, la icona i el filtre.
+
+## Publicar una notícia
+
+Afegeix un objecte a `data/noticies.json`:
+
+```json
+{
+  "slug": "castanyada-2026",
+  "titol": "Una Castanyada plena de veïnat",
+  "data": "2026-10-31",
+  "tipus": "cronica",
+  "resum": "Més de cent persones van tastar les castanyes a la Masia.",
+  "text": "Primer paràgraf.\n\n## Un subtítol\n\nSegon paràgraf amb **negreta** i un [enllaç](https://www.avcanyado.org).",
+  "imatge": "cartell-castanyada-2026",
+  "alt": "Descripció de la imatge"
+}
+```
+
+Tipus: `noticia`, `blog`, `cronica` o `avis`. Amb `"esborrany": true` no es publica.
 
 ## Local
 

@@ -20,6 +20,8 @@ const activitats = JSON.parse(llegeix('data/activitats.json'));
 const tallers = JSON.parse(llegeix('data/tallers.json'));
 const espais = JSON.parse(llegeix('data/espais.json'));
 const publicacions = JSON.parse(llegeix('data/publicacions.json'));
+const noticies = JSON.parse(llegeix('data/noticies.json'));
+const llistaNoticies = noticies.noticies.filter((n) => !n.esborrany).sort((a, b) => b.data.localeCompare(a.data));
 const hoy = avui();
 const { futures, passades } = ocurrencies(activitats.activitats, hoy);
 const versio = Date.now().toString(36);
@@ -90,6 +92,64 @@ function espaisHTML() {
   }).join('\n');
 }
 
+/* Text de les notícies: paràgrafs separats per una línia en blanc,
+   **negreta**, *cursiva* i [enllaços](https://...). Res més: així és segur. */
+function textRic(s) {
+  return String(s || '').trim().split(/\n\s*\n/).map((p) => {
+    let h = esc(p.trim()).replace(/\n/g, '<br>');
+    h = h.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>');
+    h = h.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|\/[^)\s]*|mailto:[^)\s]+)\)/g, (_, txt, url) => `<a href="${url}"${url.startsWith('http') ? ' rel="noopener"' : ''}>${txt}</a>`);
+    return /^#{2,3} /.test(p.trim()) ? `<h2>${h.replace(/^#{2,3} /, '')}</h2>` : `<p>${h}</p>`;
+  }).join('\n');
+}
+const TIPUS_NOTICIA = { noticia: 'Notícia', blog: 'Blog', cronica: 'Crònica', avis: 'Avís' };
+const dataNoticia = (s) => new Intl.DateTimeFormat('ca-ES', { timeZone: 'UTC', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(s + 'T12:00:00Z'));
+
+function noticiesHTML(max = 99) {
+  const llista = llistaNoticies.slice(0, max);
+  if (!llista.length) {
+    return `<div class="buit"><p class="buit__titol">Aviat hi publicarem notícies</p><p>Aquí trobaràs les novetats del barri, cròniques de les activitats i articles de l'associació.</p></div>`;
+  }
+  return `<ul class="noticies">${llista.map((n) => `<li class="noticia">
+    <a class="noticia__enllac" href="/noticies/${n.slug}">
+      <span class="noticia__media">${n.imatge ? `<img src="/assets/img/${n.imatge}.webp" alt="" loading="lazy">` : '<span class="noticia__buida" aria-hidden="true"></span>'}</span>
+      <span class="noticia__cos">
+        <span class="noticia__meta"><span class="noticia__tipus">${esc(TIPUS_NOTICIA[n.tipus] || 'Notícia')}</span><time datetime="${n.data}">${esc(dataNoticia(n.data))}</time></span>
+        <span class="noticia__titol">${esc(n.titol)}</span>
+        ${n.resum ? `<span class="noticia__resum">${esc(n.resum)}</span>` : ''}
+      </span>
+    </a>
+  </li>`).join('')}</ul>`;
+}
+
+function paginaNoticia(n) {
+  const meta = JSON.stringify({ title: n.titol, desc: n.resum || '', nav: 'publicacions', path: `/noticies/${n.slug}` });
+  return `<!--meta ${meta} -->
+<!doctype html>
+<html lang="ca">
+<head>
+{{head}}
+</head>
+<body>
+{{header}}
+<main id="contingut">
+  <article class="article">
+    <header class="article__cap">
+      <p class="article__torna"><a href="/publicacions#noticies">Totes les notícies</a></p>
+      <p class="noticia__meta"><span class="noticia__tipus">${esc(TIPUS_NOTICIA[n.tipus] || 'Notícia')}</span><time datetime="${n.data}">${esc(dataNoticia(n.data))}</time>${n.autor ? `<span>${esc(n.autor)}</span>` : ''}</p>
+      <h1>${esc(n.titol)}</h1>
+      ${n.resum ? `<p class="entradeta">${esc(n.resum)}</p>` : ''}
+    </header>
+    ${n.imatge ? `<figure class="article__img"><img src="/assets/img/${n.imatge}.webp" alt="${esc(n.alt || '')}"></figure>` : ''}
+    <div class="article__text">${textRic(n.text)}</div>
+  </article>
+</main>
+{{footer}}
+{{js-menu}}
+</body>
+</html>`;
+}
+
 const espaisNavHTML = () => espais.espais.map((e) => `<a href="#${e.id}">${esc(e.titol)}</a>`).join('');
 
 function publicacionsHTML() {
@@ -126,8 +186,8 @@ const nav = [
 ];
 const navHTML = (actiu) => nav.map(([id, href, txt]) => `<li><a href="${href}"${id === actiu ? ' aria-current="page"' : ''}>${txt}</a></li>`).join('');
 
-function render(fitxer) {
-  let html = llegeix(fitxer);
+function render(fitxer, text = null) {
+  let html = text ?? llegeix(fitxer);
   const m = html.match(/^<!--meta\s+(\{[\s\S]*?\})\s*-->\s*/);
   if (!m) throw new Error(`Falta el bloc <!--meta {...} --> a ${fitxer}`);
   const meta = JSON.parse(m[1]);
@@ -156,6 +216,7 @@ function render(fitxer) {
     '{{espais}}': espaisHTML(),
     '{{espais-nav}}': espaisNavHTML(),
     '{{publicacions}}': publicacionsHTML(),
+    '{{noticies}}': noticiesHTML(),
     '{{filtre-tallers}}': filtreHTML(),
     '{{centres}}': centresHTML(),
     '{{curs}}': esc(tallers.curs),
@@ -182,6 +243,12 @@ for (const f of ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png']) {
 const pagines = readdirSync(join(SRC, 'pages')).filter((f) => f.endsWith('.html'));
 for (const p of pagines) writeFileSync(join(OUT, p), render(join(SRC, 'pages', p)));
 
+mkdirSync(join(OUT, 'noticies'), { recursive: true });
+for (const n of llistaNoticies) {
+  if (!/^[a-z0-9-]+$/.test(n.slug)) throw new Error(`Slug no vàlid a noticies.json: ${n.slug}`);
+  writeFileSync(join(OUT, 'noticies', `${n.slug}.html`), render(`noticia ${n.slug}`, paginaNoticia(n)));
+}
+
 writeFileSync(join(OUT, 'robots.txt'), INDEXAR ? `User-agent: *\nAllow: /\n` : `User-agent: *\nDisallow: /\n`);
 
-console.log(`✓ ${pagines.length} pàgines a ${OUT}/ · ${futures.length} activitats properes, ${passades.length} anteriors · ${INDEXAR ? 'indexable' : 'NO indexable (noindex)'}`);
+console.log(`✓ ${pagines.length} pàgines, ${llistaNoticies.length} notícies a ${OUT}/ · ${futures.length} activitats properes, ${passades.length} anteriors · ${INDEXAR ? 'indexable' : 'NO indexable (noindex)'}`);

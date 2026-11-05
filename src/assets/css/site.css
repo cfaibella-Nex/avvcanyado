@@ -337,6 +337,29 @@ main > .espais { max-width: none; padding-inline: 0; }
 @media (max-width: 520px) { .llibre { grid-template-columns: 7.5rem 1fr; gap: 1.25rem; } .llibre h3 { font-size: 1.3rem; } .llibre__fitxa > div { grid-template-columns: 1fr; gap: 0; } }
 @media (prefers-reduced-motion: reduce) { .llibre__portada, .llibre:nth-child(even) .llibre__portada, .llibre__coberta:hover .llibre__portada { transform: none; } }
 
+/* ── Notícies i blog ── */
+.noticies { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+.noticia__enllac { display: flex; flex-direction: column; height: 100%; background: var(--paper); border-radius: 18px; overflow: hidden; color: var(--tinta); text-decoration: none; box-shadow: 0 1px 0 rgba(31, 42, 46, 0.06), 0 10px 30px -12px rgba(122, 59, 46, 0.28); transition: transform 220ms ease-out, box-shadow 220ms ease-out; }
+.noticia__enllac:hover { color: var(--tinta); transform: translateY(-3px); box-shadow: 0 1px 0 rgba(31, 42, 46, 0.06), 0 18px 40px -14px rgba(122, 59, 46, 0.4); }
+.noticia__media { display: block; aspect-ratio: 16 / 9; background: var(--granat-clar); overflow: hidden; }
+.noticia__media img { width: 100%; height: 100%; object-fit: cover; }
+.noticia__buida { display: block; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(226, 162, 59, 0.35), transparent 55%), linear-gradient(135deg, var(--granat), var(--granat-fosc)); }
+.noticia__cos { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.2rem 1.35rem 1.4rem; }
+.noticia__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 0.75rem; font-size: 0.95rem; color: var(--gris); margin: 0; }
+.noticia__tipus { font-weight: 700; color: var(--granat-fosc); background: var(--granat-clar); padding: 0.15rem 0.65rem; border-radius: 99px; }
+.noticia__titol { font-family: var(--f-titol); font-weight: 700; font-size: 1.4rem; line-height: 1.15; }
+.noticia__enllac:hover .noticia__titol { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.15em; }
+.noticia__resum { font-size: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.article { max-width: 46rem; padding-block: clamp(2rem, 5vw, 3.5rem) var(--espai); }
+.article__torna { margin-bottom: 1.5rem; font-weight: 700; }
+.article__torna a::before { content: '‹ '; }
+.article__cap h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); margin: 0.75rem 0 1rem; }
+.article__img { margin: 2rem 0; }
+.article__img img { width: 100%; border-radius: 14px; }
+.article__text { font-size: 1.15rem; line-height: 1.7; }
+.article__text h2 { font-size: 1.6rem; margin-top: 2rem; }
+@media (prefers-reduced-motion: reduce) { .noticia__enllac:hover { transform: none; } }
+
 /* ── Participa ── */
 .xifra { font-family: var(--f-titol); font-weight: 800; color: var(--granat); font-size: 1.25rem; margin-bottom: 0.75rem; }
 .xifra span { font-size: 4.5rem; letter-spacing: -0.04em; line-height: 1; margin-right: 0.25rem; }

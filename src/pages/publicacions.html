@@ -1,4 +1,4 @@
-<!--meta {"title": "Publicacions", "desc": "Llibres i publicacions editats per l'Associació Veïnal de Canyadó. On comprar-los i com consultar-los.", "nav": "publicacions"} -->
+<!--meta {"title": "Publicacions", "desc": "Notícies, blog i llibres de l'Associació Veïnal de Canyadó.", "nav": "publicacions"} -->
 <!doctype html>
 <html lang="ca">
 <head>
@@ -10,11 +10,17 @@
 
   <header class="pagina">
     <h1>Publicacions</h1>
-    <p class="entradeta">Llibres i revistes que ha publicat i editat l'AVV per explicar la història i la vida del barri.</p>
+    <p class="entradeta">Notícies del barri, articles de l'associació i els llibres que ha editat l'AVV per explicar la història i la vida de Canyadó.</p>
+    <nav class="dins-pagina" aria-label="En aquesta pàgina"><a href="#noticies">Notícies i blog</a><a href="#llibres">Llibres</a><a href="#revista">La revista</a></nav>
   </header>
 
-  <section class="bloc" aria-labelledby="t-llibres">
-    <h2 id="t-llibres" class="visualment-amagat">Llibres</h2>
+  <section class="bloc" id="noticies" aria-labelledby="t-noticies">
+    <h2 id="t-noticies">Notícies i blog</h2>
+{{noticies}}
+  </section>
+
+  <section class="bloc" id="llibres" aria-labelledby="t-llibres">
+    <h2 id="t-llibres">Llibres</h2>
 {{publicacions}}
   </section>
 
@@ -24,7 +30,7 @@
       <p>Els llibres es poden comprar al local de l'AVV en horari d'obertura: dimarts i dijous de 18 a 20 h.</p>
       <p>Si no pots venir, escriu a <a href="mailto:avvcanyado@gmail.com">avvcanyado@gmail.com</a> i et direm com fer-ho.</p>
     </div>
-    <div>
+    <div id="revista">
       <h2>La revista de Canyadó</h2>
       <p>Cada any, coincidint amb la Festa Major, l'AVV edita una revista que explica tot el que s'ha fet al barri i les gestions de l'associació. És especialment pensada per a les persones que no fan servir les xarxes.</p>
     </div>
