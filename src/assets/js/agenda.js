@@ -72,25 +72,48 @@ export function ocurrencies(activitats, hoy) {
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-/** Fila d'agenda: data gran a l'esquerra, informació a la dreta. */
+const ICO = {
+  hora: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  lloc: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+  repeteix: '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/></svg>',
+};
+const diesFins = (des, fins) => Math.round((new Date(fins + 'T12:00:00Z') - new Date(des + 'T12:00:00Z')) / 86400000);
+const diaCurt = (s) => fmt({ weekday: 'short' }).format(d(s)).replace('.', '');
+
+/** Targeta d'activitat: imatge amb la data a sobre i la informació a sota. */
 export function filaHTML(a, hoy, { ambCartell = false } = {}) {
-  const esAvui = a.data === hoy;
-  const parts = [horari(a) && `<span>${horari(a)}</span>`, a.lloc && `<span>${esc(a.lloc)}</span>`].filter(Boolean);
-  const quan = parts.length ? parts.join('') : '<span>Horari i lloc per confirmar</span>';
+  const dies = diesFins(hoy, a.data);
+  const etiqueta = dies === 0 ? 'Avui' : dies === 1 ? 'Demà' : dies > 0 && dies <= 7 ? 'Aquesta setmana' : '';
+  const img = a.imatge || a.cartell;
+  const retrat = !a.imatge && a.cartell;
+  const imatge = img
+    ? `<img src="/assets/img/${img}.webp" alt="" loading="lazy" decoding="async" class="targeta__img${retrat ? ' targeta__img--cartell' : ''}">`
+    : `<span class="targeta__img targeta__img--buida" aria-hidden="true"></span>`;
+  const meta = [
+    horari(a) ? `<li>${ICO.hora}<span>${esc(horari(a))}</span></li>` : '',
+    a.lloc ? `<li>${ICO.lloc}<span>${esc(a.lloc)}</span></li>` : '',
+  ].join('') || `<li>${ICO.hora}<span>Horari i lloc per confirmar</span></li>`;
+  const xips = [
+    a.regla ? `<span class="xip-ag">${ICO.repeteix}${esc(a.regla.text)}</span>` : '',
+    a.preu ? `<span class="xip-ag xip-ag--preu">${esc(a.preu)}</span>` : '',
+  ].join('');
   const cartell = ambCartell && a.cartell
-    ? `<a class="fila__cartell" href="/assets/img/${a.cartell}.jpg" aria-label="Cartell de ${esc(a.titol)} (s'obre la imatge)"><img src="/assets/img/${a.cartell}.webp" alt="" width="160" height="200" loading="lazy" decoding="async"></a>`
+    ? `<a class="targeta__cartell" href="/assets/img/${a.cartell}.jpg">Mira el cartell<span class="visualment-amagat"> de ${esc(a.titol)}</span></a>`
     : '';
-  return `<li class="fila${esAvui ? ' fila--avui' : ''}" data-data="${a.data}">
-  <time class="fila__data" datetime="${a.data}"><span class="fila__dia">${numDia(a.data)}</span><span class="fila__mes">${mesCurt(a.data)}</span></time>
-  <div class="fila__cos">
-    <p class="fila__quan">${esAvui ? '<strong class="avui">Avui</strong> ' : ''}${esc(dataLlarga(a.data))}${a.regla ? ` <span class="fila__regla">(${esc(a.regla.text)})</span>` : ''}</p>
-    <h3 class="fila__titol">${esc(a.titol)}</h3>
-    <p class="fila__on">${quan}</p>
-    ${a.descripcio ? `<p class="fila__desc">${esc(a.descripcio)}</p>` : ''}
-    ${a.seguents?.length ? `<p class="fila__seguent">Següent: ${esc(a.seguents.map(dataLlarga).join(', '))}</p>` : ''}
-    ${a.preu ? `<p class="fila__preu">${esc(a.preu)}</p>` : ''}
+  return `<li class="targeta${dies === 0 ? ' targeta--avui' : ''}" data-data="${a.data}">
+  <div class="targeta__media">
+    ${imatge}
+    <time class="targeta__data" datetime="${a.data}"><span class="targeta__dsem">${esc(diaCurt(a.data))}</span><span class="targeta__dia">${numDia(a.data)}</span><span class="targeta__mes">${mesCurt(a.data)}</span></time>
+    ${etiqueta ? `<span class="targeta__etiqueta">${etiqueta}</span>` : ''}
   </div>
-  ${cartell}
+  <div class="targeta__cos">
+    <p class="visualment-amagat">${esc(dataLlarga(a.data))}</p>
+    <h3 class="targeta__titol">${esc(a.titol)}</h3>
+    <ul class="targeta__meta">${meta}</ul>
+    ${a.descripcio ? `<p class="targeta__desc">${esc(a.descripcio)}</p>` : ''}
+    ${a.seguents?.length ? `<p class="targeta__seguent">Següent: ${esc(a.seguents.map(dataLlarga).join(', '))}</p>` : ''}
+    ${xips || cartell ? `<div class="targeta__peu">${xips}${cartell}</div>` : ''}
+  </div>
 </li>`;
 }
 

@@ -20,7 +20,8 @@
         "2026-11-26",
         "2026-12-03",
         "2026-12-17"
-      ]
+      ],
+      "imatge": "una-cadira-mes-il-700"
     },
     {
       "id": "convivencies-nadal-2026",
@@ -31,7 +32,8 @@
       "lloc": null,
       "descripcio": "Ens retrobem per celebrar les festes amb el veïnat. Aviat publicarem l'horari i el programa.",
       "cartell": null,
-      "pendent": true
+      "pendent": true,
+      "imatge": "nadal-il-700"
     },
     {
       "id": "canyaween-2026",
