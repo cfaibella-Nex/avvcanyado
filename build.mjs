@@ -44,6 +44,32 @@ function filtreHTML() {
   return `<div class="filtre" role="group" aria-label="Mostra només un tipus de taller" hidden>${botons.join('')}</div>`;
 }
 
+/* Graella setmanal: files per franja horària, columnes per dia. */
+const FRANGES = [
+  { id: 'mati', nom: 'Matí', des: 0, fins: 14 },
+  { id: '17', nom: '17 h', des: 17, fins: 18 },
+  { id: '18', nom: '18 h', des: 18, fins: 19 },
+  { id: '19', nom: '19 h', des: 19, fins: 20 },
+  { id: '20', nom: '20 h', des: 20, fins: 24 },
+];
+const horaInici = (t) => Number(String(t.hora).split(/[–-]/)[0].split('.')[0]);
+function graellaHTML() {
+  const dies = [1, 2, 3, 4].filter((d) => tallers.tallers.some((t) => t.dies.includes(d)));
+  const cap = `<div class="graella__cap" role="row"><span role="columnheader" class="graella__buit"><span class="visualment-amagat">Franja</span></span>${dies.map((d) => `<span role="columnheader">${DIES[d]}</span>`).join('')}</div>`;
+  const files = FRANGES.map((f) => {
+    const cel = dies.map((d) => {
+      const llista = tallers.tallers.filter((t) => t.dies.includes(d) && horaInici(t) >= f.des && horaInici(t) < f.fins);
+      const xips = llista.map((t) => {
+        const c = tallers.categories[t.cat];
+        return `<li class="xt taller--${t.cat}" data-cat="${t.cat}"><span class="xt__ico" title="${esc(c.nom)}">${icona(c.icona)}</span><span class="xt__nom">${esc(t.nom)}</span><span class="xt__meta"><b>${esc(t.hora)}</b> ${esc(t.centre)}</span></li>`;
+      }).join('');
+      return `<div role="cell" class="graella__cel">${xips ? `<ul>${xips}</ul>` : ''}</div>`;
+    }).join('');
+    return `<div class="graella__fila" role="row"><span role="rowheader" class="graella__franja">${f.nom}</span>${cel}</div>`;
+  }).join('');
+  return `<div class="graella" role="table" aria-label="Horari setmanal dels tallers">${cap}${files}</div>`;
+}
+
 function tallersHTML() {
   const perDia = DIES.map(() => []);
   for (const t of tallers.tallers) for (const d of t.dies) perDia[d].push(t);
@@ -213,6 +239,7 @@ function render(fitxer, text = null) {
     '{{agenda:futures}}': llistaHTML(futures, hoy, { ambCartell: true }),
     '{{agenda:passades}}': llistaHTML(passades, hoy, { ambCartell: true }),
     '{{tallers}}': tallersHTML(),
+    '{{graella-tallers}}': graellaHTML(),
     '{{espais}}': espaisHTML(),
     '{{espais-nav}}': espaisNavHTML(),
     '{{publicacions}}': publicacionsHTML(),
