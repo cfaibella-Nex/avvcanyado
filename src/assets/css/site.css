@@ -487,3 +487,23 @@ main > .espais { max-width: none; padding-inline: 0; }
   .cap nav, .menu, .franja, .peu__marca { display: none; }
   body { background: #fff; }
 }
+
+/* ── Vel lateral ──
+   Per a fotos petites o verticals: en pantalla ampla la foto ocupa només
+   la dreta i es fon amb el fons, així no es pixela. */
+.vel--lateral .vel__foto img { object-position: 50% 40%; }
+@media (min-width: 760px) {
+  .vel--lateral { background: var(--tinta); }
+  .vel--lateral .vel__foto { left: auto; width: min(52%, 36rem); }
+  .vel--lateral .vel__foto img { -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%); mask-image: linear-gradient(90deg, transparent 0%, #000 45%); }
+  .vel--lateral::after { background: linear-gradient(100deg, rgba(31, 42, 46, 0.55) 0%, rgba(31, 42, 46, 0.25) 55%, rgba(122, 59, 46, 0.35) 100%); }
+}
+
+/* ── Taula informativa (galetes, dades) ── */
+.taula { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.95rem; border-top: 2px solid var(--tinta); }
+.taula th, .taula td { padding: 0.7rem 0.75rem 0.7rem 0; border-bottom: 1px solid var(--filet); text-align: left; vertical-align: top; }
+.taula thead th { font-weight: 700; }
+.taula-scroll { overflow-x: auto; }
+.text .actualitzat { color: var(--gris); font-size: 0.95rem; margin-top: 2.5rem; }
+
+[id] { scroll-margin-top: 6rem; }
