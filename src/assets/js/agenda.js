@@ -87,10 +87,14 @@ export function filaHTML(a, hoy, { ambCartell = false } = {}) {
   const finsDiumenge = 6 - diaSem;
   const etiqueta = dies === 0 ? 'Avui' : dies === 1 ? 'Demà' : dies > 1 && dies <= finsDiumenge ? 'Aquesta setmana' : '';
   const img = a.imatge || a.cartell;
-  const retrat = !a.imatge && a.cartell;
+  const gran = a.cartell || a.imatge;
+  const esCartell = !a.imatge && a.cartell;
   const imatge = img
-    ? `<img src="/assets/img/${img}.webp" alt="" loading="lazy" decoding="async" class="targeta__img${retrat ? ' targeta__img--cartell' : ''}">`
+    ? `${esCartell ? `<img src="/assets/img/${img}.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" class="targeta__fons">` : ''}<img src="/assets/img/${img}.webp" alt="" loading="lazy" decoding="async" class="targeta__img${esCartell ? ' targeta__img--cartell' : ''}">`
     : `<span class="targeta__img targeta__img--buida" aria-hidden="true"></span>`;
+  const media = (contingut) => gran
+    ? `<a class="targeta__media" href="/assets/img/${gran}.jpg" data-amplia aria-label="Amplia ${a.cartell ? 'el cartell' : 'la imatge'} de ${esc(a.titol)}">${contingut}<span class="targeta__lupa" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg>${a.cartell ? 'Cartell' : 'Amplia'}</span></a>`
+    : `<div class="targeta__media">${contingut}</div>`;
   const meta = [
     horari(a) ? `<li>${ICO.hora}<span>${esc(horari(a))}</span></li>` : (a.lloc ? `<li>${ICO.hora}<span>Horari per confirmar</span></li>` : ''),
     a.lloc ? `<li>${ICO.lloc}<span>${esc(a.lloc)}</span></li>` : '',
@@ -99,15 +103,11 @@ export function filaHTML(a, hoy, { ambCartell = false } = {}) {
     a.regla ? `<span class="xip-ag">${ICO.repeteix}${esc(a.regla.text)}</span>` : '',
     a.preu ? `<span class="xip-ag xip-ag--preu">${esc(a.preu)}</span>` : '',
   ].join('');
-  const cartell = ambCartell && a.cartell
-    ? `<a class="targeta__cartell" href="/assets/img/${a.cartell}.jpg">Mira el cartell<span class="visualment-amagat"> de ${esc(a.titol)}</span></a>`
-    : '';
+  const cartell = '';
   return `<li class="targeta${dies === 0 ? ' targeta--avui' : ''}" data-data="${a.data}">
-  <div class="targeta__media">
-    ${imatge}
+  ${media(`${imatge}
     <time class="targeta__data" datetime="${a.data}"><span class="targeta__dsem">${esc(diaCurt(a.data))}</span><span class="targeta__dia">${numDia(a.data)}</span><span class="targeta__mes">${mesCurt(a.data)}</span></time>
-    ${etiqueta ? `<span class="targeta__etiqueta">${etiqueta}</span>` : ''}
-  </div>
+    ${etiqueta ? `<span class="targeta__etiqueta">${etiqueta}</span>` : ''}`)}
   <div class="targeta__cos">
     <p class="visualment-amagat">${esc(dataLlarga(a.data))}</p>
     <h3 class="targeta__titol">${esc(a.titol)}</h3>
