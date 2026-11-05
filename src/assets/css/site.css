@@ -941,3 +941,10 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
   .heroi--centre .heroi__foto:hover .pila__f--d, .heroi--centre .heroi__foto:focus-within .pila__f--d { transform: translate(40%, -2%) rotate(9deg) scale(0.7); }
 }
 @media (max-width: 959px) { .fletxa-gran__gran { font-size: 1.3rem; } .fletxa-gran__petit { font-size: 0.68rem; } }
+
+/* ── Inici: el mapa del barri de fons, amb vel; a sobre, els logos i la composició ── */
+.heroi__mapa { position: absolute; z-index: -3; inset: 0 calc(50% - 50vw); background: var(--crema) url(/assets/img/mapa-canyado.jpg) center 40% / cover no-repeat; opacity: 0.5; filter: blur(0.6px); }
+.heroi__mapa::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 60% at 50% 45%, rgba(244, 240, 234, 0.92) 0%, rgba(244, 240, 234, 0.55) 55%, rgba(244, 240, 234, 0.2) 100%), linear-gradient(180deg, transparent 75%, var(--crema) 100%); }
+.heroi__marca { z-index: -2; }
+.heroi__credit { position: absolute; z-index: 1; right: 0; bottom: 0.75rem; margin: 0; font-size: 0.7rem; color: var(--gris); opacity: 0.8; }
+@media (max-width: 959px) { .heroi__mapa { inset: 0; background-position: 38% 40%; } .heroi__credit { right: var(--marge); } }
