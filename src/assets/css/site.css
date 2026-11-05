@@ -948,3 +948,13 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
 .heroi__marca { z-index: -2; }
 .heroi__credit { position: absolute; z-index: 1; right: 0; bottom: 0.75rem; margin: 0; font-size: 0.7rem; color: var(--gris); opacity: 0.8; }
 @media (max-width: 959px) { .heroi__mapa { inset: 0; background-position: 38% 40%; } .heroi__credit { right: var(--marge); } }
+
+/* ── Activitats › Properes: correfoc de fons amb vel i targetes de vidre ── */
+.fons--foc { position: relative; isolation: isolate; }
+.fons--foc::before { content: ''; position: absolute; z-index: -1; inset: 0 calc(50% - 50vw); pointer-events: none;
+  background: linear-gradient(180deg, rgba(31, 42, 46, 0.7) 0%, rgba(31, 42, 46, 0.35) 30%, rgba(31, 42, 46, 0.45) 65%, rgba(31, 42, 46, 0.92) 100%),
+              url(/assets/img/correfoc-canyado-ample.jpg) center 40% / cover no-repeat; }
+@media (max-width: 759px) { .fons--foc::before { background-image: linear-gradient(180deg, rgba(31, 42, 46, 0.7) 0%, rgba(31, 42, 46, 0.4) 30%, rgba(31, 42, 46, 0.55) 65%, rgba(31, 42, 46, 0.92) 100%), url(/assets/img/correfoc-canyado.jpg); background-position: center 40%; } }
+.fons--foc h2 { text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5); }
+.fons--foc .targeta { background: rgba(255, 252, 247, 0.78); -webkit-backdrop-filter: blur(14px) saturate(1.2); backdrop-filter: blur(14px) saturate(1.2); border: 1px solid rgba(255, 252, 247, 0.45); box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.75); }
+.fons--foc .targeta:hover { background: rgba(255, 252, 247, 0.9); }
