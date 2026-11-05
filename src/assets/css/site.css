@@ -1073,3 +1073,39 @@ main > .cinta-logos { max-width: none; padding-inline: 0; }
   .heroi__escena { grid-template-columns: 1fr minmax(0, 46rem) 1fr; gap: 3rem; }
 }
 .heroi__escena .heroi__foto { width: min(100%, 48rem); }
+
+/* ── Ajustos Inici (6/11) ── */
+.cinta-logos { display: none; }
+.heroi__antic { background-image: url(/assets/img/masia-antiga-pano.jpg); background-position: center 40%; opacity: 0.9; filter: none; }
+.heroi__antic::after { background: radial-gradient(ellipse 42% 46% at 50% 32%, rgba(244, 240, 234, 0.88) 0%, rgba(244, 240, 234, 0.55) 60%, rgba(244, 240, 234, 0.1) 100%), linear-gradient(180deg, transparent 0%, transparent 74%, var(--crema) 100%); }
+@media (max-width: 959px) { .heroi__antic { background-image: url(/assets/img/masia-antiga.jpg); background-position: center 25%; } }
+/* foto central i les tres de darrere, més grans */
+@media (min-width: 960px) {
+  .heroi__escena { grid-template-columns: minmax(12rem, 1fr) minmax(0, 52rem) minmax(12rem, 1fr); gap: 2rem; }
+  .heroi__escena .heroi__foto { width: 100%; }
+}
+@media (hover: hover) and (min-width: 960px) {
+  .heroi--centre .heroi__foto:hover .pila__f--e { transform: translate(-40%, 6%) rotate(-7deg) scale(0.8); }
+  .heroi--centre .heroi__foto:hover .pila__f--a { transform: translate(0, -12%) rotate(2deg) scale(0.84); }
+  .heroi--centre .heroi__foto:hover .pila__f--d { transform: translate(40%, 10%) rotate(6deg) scale(0.8); }
+}
+.pindola--granat { grid-template-areas: "gran icona"; }
+
+/* Logos en moviment integrats al fons de Properes */
+.fons--logos { isolation: isolate; overflow: clip; }
+.fons__logos { position: absolute; inset: 0 calc(50% - 50vw); z-index: -1; pointer-events: none; overflow: hidden; }
+.fons__logos span { position: absolute; left: -10%; right: -10%; height: clamp(6rem, 11vw, 9rem); background: url(/assets/img/logo.svg) repeat-x 0 50% / auto 100%; }
+.fons__logos span:first-child { top: 4%; transform: rotate(-4deg); opacity: 0.1; }
+.fons__logos span:last-child { bottom: 6%; transform: rotate(3deg); opacity: 0.08; background-position: 40% 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .fons__logos span:first-child { animation: marca-a 55s linear infinite; }
+  .fons__logos span:last-child { animation: marca-b 65s linear infinite; }
+}
+@media (max-width: 959px) { .fons__logos { inset: 0; } }
+
+/* Logos de les entitats */
+.entitat__logo { width: 4.5rem; height: 4.5rem; object-fit: contain; background: #fff; border-radius: 12px; padding: 0.35rem; border: 1px solid var(--filet); }
+.entitat { grid-template-columns: 7.5rem 1fr; }
+.entitat__inicials { width: 7.5rem; height: 5rem; aspect-ratio: auto; border-radius: 12px; font-size: 1.4rem; }
+.entitat__logo { width: 7.5rem; height: 5rem; padding: 0.4rem; }
+@media (max-width: 480px) { .entitat { grid-template-columns: 1fr; } }
