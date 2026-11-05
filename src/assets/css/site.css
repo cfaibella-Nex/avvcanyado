@@ -788,3 +788,29 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
   .cronologia--zigzag li.amb-foto .cronologia__foto--cartell .cronologia__cartell { left: 50%; }
 }
 @media (max-width: 899px) { .cronologia--zigzag li.amb-foto:has(.cronologia__foto--cartell)::before { top: 22.6rem; } .cronologia__foto--cartell .cronologia__peu { bottom: 0.75rem; } }
+
+/* ── Document de fons (Estatuts, full de soci) ──
+   Les pàgines reals, inclinades i grans a la dreta, sota un vel crema
+   que les integra amb la pàgina sense competir amb el text. */
+.doc-fons { position: relative; isolation: isolate; padding-top: clamp(2rem, 5vw, 3.5rem); min-height: clamp(20rem, 34vw, 28rem); }
+.doc-fons__fulls { position: absolute; z-index: -1; top: 0; bottom: 0; right: var(--marge); width: min(46%, 30rem); pointer-events: none; }
+.doc-fons__fulls picture { position: absolute; top: 0; right: 0; width: 72%; }
+.doc-fons__fulls img { display: block; width: 100%; height: auto; background: #fff; box-shadow: 0 30px 60px -25px rgba(31, 42, 46, 0.45); }
+.doc-fons__fulls picture:first-child { transform: rotate(-9deg) translate(-38%, 6%); opacity: 0.7; }
+.doc-fons__fulls picture:last-child { transform: rotate(5deg); }
+.doc-fons__fulls--sol picture:first-child { width: 80%; transform: rotate(6deg) translate(-4%, -2%); opacity: 1; }
+.doc-fons::after { content: ''; position: absolute; z-index: -1; inset: -1px calc(50% - 50vw); pointer-events: none;
+  background: linear-gradient(90deg, var(--crema) 0%, var(--crema) 42%, rgba(244, 240, 234, 0.72) 62%, rgba(244, 240, 234, 0.45) 100%),
+              linear-gradient(180deg, var(--crema) 0%, transparent 18%, transparent 72%, var(--crema) 100%); }
+.doc-fons { clip-path: inset(0 -100vmax); }
+.doc-fons .document, .doc-fons .caixa { position: relative; background: rgba(255, 252, 247, 0.92); box-shadow: 0 20px 45px -28px rgba(31, 42, 46, 0.5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+@media (max-width: 759px) {
+  .doc-fons__fulls { right: 0; width: 70%; opacity: 0.55; }
+  .doc-fons::after { background: linear-gradient(180deg, var(--crema) 0%, rgba(244, 240, 234, 0.6) 40%, rgba(244, 240, 234, 0.75) 100%); }
+  .doc-fons { overflow: clip; clip-path: none; }
+  .doc-fons::after { inset: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .doc-fons__fulls picture:last-child { transition: transform 600ms cubic-bezier(.2, .7, .2, 1); }
+  .doc-fons:hover .doc-fons__fulls picture:last-child { transform: rotate(3deg) translateY(-6px); }
+}
