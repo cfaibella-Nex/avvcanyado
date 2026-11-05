@@ -1173,3 +1173,17 @@ main > .cinta-logos { max-width: none; padding-inline: 0; }
 .heroi__antic { background: var(--crema) url(/assets/img/masia-antiga-h.jpg) center 40% / cover no-repeat; opacity: 1; filter: none; -webkit-mask-image: none; mask-image: none; }
 .heroi__antic::after { background: radial-gradient(ellipse 50% 48% at 50% 32%, rgba(250, 247, 242, 0.82) 0%, rgba(250, 247, 242, 0.6) 60%, rgba(250, 247, 242, 0.42) 100%), linear-gradient(180deg, rgba(250, 247, 242, 0.25) 0%, transparent 25%, transparent 75%, var(--crema) 100%); }
 @media (max-width: 959px) { .heroi__antic { background-image: url(/assets/img/masia-antiga-h-900.jpg); background-position: 58% 30%; background-size: cover; -webkit-mask-image: none; mask-image: none; } }
+
+/* ── Participa: veïnat de paper, clar i dissimulat sota Proposa i Local ── */
+main > .veinat-fons { max-width: none; padding-inline: 0; }
+.veinat-fons { position: relative; isolation: isolate; overflow: hidden; padding-top: var(--espai); }
+.veinat-fons > .bloc { position: relative; max-width: var(--amplada); margin-inline: auto; padding-inline: var(--marge); }
+.veinat-fons__img { position: absolute; inset: 0; z-index: -1; background: url(/assets/img/participa-veinat-h.jpg) center 55% / cover no-repeat; opacity: 0.22; filter: saturate(0.75) blur(1px); }
+.veinat-fons__img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--crema) 0%, rgba(244, 240, 234, 0.85) 38%, rgba(244, 240, 234, 0.35) 75%, rgba(244, 240, 234, 0.2) 100%), linear-gradient(180deg, var(--crema) 0%, transparent 22%, transparent 78%, var(--crema) 100%); }
+@media (max-width: 759px) { .veinat-fons__img { background-image: url(/assets/img/participa-veinat-h-900.jpg); opacity: 0.18; } .veinat-fons__img::after { background: linear-gradient(180deg, var(--crema) 0%, rgba(244, 240, 234, 0.7) 20%, rgba(244, 240, 234, 0.7) 80%, var(--crema) 100%); } }
+
+/* ── Fes-te soci: foto real amb vel clar i targeta integrada ── */
+.soci-banda__foto img { object-position: 60% 22% !important; }
+.soci-banda__foto::after { background: linear-gradient(90deg, rgba(250, 247, 242, 0.55) 0%, rgba(250, 247, 242, 0.25) 42%, rgba(250, 247, 242, 0.08) 70%, transparent 100%), linear-gradient(180deg, transparent 78%, var(--crema) 100%) !important; }
+.soci-banda__targeta { background: rgba(255, 252, 247, 0.38); -webkit-backdrop-filter: blur(22px) saturate(1.4); backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(255, 255, 255, 0.55); border-top: 1px solid rgba(255, 255, 255, 0.7); border-radius: 26px; box-shadow: 0 30px 70px -30px rgba(31, 42, 46, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6); }
+.soci-banda__targeta .boto { border-radius: 999px; background: rgba(122, 59, 46, 0.88); border-color: transparent; }
