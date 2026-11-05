@@ -115,6 +115,7 @@ export function filaHTML(a, hoy, { ambCartell = false } = {}) {
     ${a.descripcio ? `<p class="targeta__desc">${esc(a.descripcio)}</p>` : ''}
     ${a.seguents?.length ? `<p class="targeta__seguent">Següent: ${esc(a.seguents.map(dataLlarga).join(', '))}</p>` : ''}
     ${xips || cartell ? `<div class="targeta__peu">${xips}${cartell}</div>` : ''}
+    <button class="targeta__obre" type="button" data-fitxa="${esc(a.id)}" aria-haspopup="dialog">Més informació <span aria-hidden="true">→</span></button>
   </div>
 </li>`;
 }
@@ -138,6 +139,7 @@ if (typeof document !== 'undefined') {
       const llista = (tipus === 'passades' ? passades : futures).slice(0, max);
       if (llista.length) ul.innerHTML = llistaHTML(llista, hoy, { ambCartell });
     });
+    activaFitxes(activitats, hoy);
     document.querySelectorAll('[data-propers-dies]').forEach((el) => {
       const a = activitats.find((x) => x.id === el.dataset.propersDies);
       if (!a) return;
@@ -146,4 +148,80 @@ if (typeof document !== 'undefined') {
       el.textContent = dates.map((s) => (s === hoy ? `avui, ${diaMes(s)}` : dataLlarga(s))).join(' i ');
     });
   }
+}
+
+/* ── Fitxa ampliada d'una activitat (diàleg) ── */
+const paragrafs = (t) => (Array.isArray(t) ? t : t ? [t] : []).map((p) => `<p>${esc(p)}</p>`).join('');
+
+function ics(a, data) {
+  const dt = data.replace(/-/g, '');
+  const hm = (h) => (h || '').replace(/[.:]/g, '').padStart(4, '0') + '00';
+  const net = (x) => String(x || '').replace(/[\\,;]/g, (c) => '\\' + c).replace(/\n/g, ' ');
+  const temps = a.hora
+    ? [`DTSTART;TZID=Europe/Madrid:${dt}T${hm(a.hora)}`, `DTEND;TZID=Europe/Madrid:${dt}T${hm(a.horaFi || a.hora)}`]
+    : [`DTSTART;VALUE=DATE:${dt}`];
+  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//AVV Canyado//Agenda//CA', 'BEGIN:VEVENT',
+    `UID:${a.id}-${dt}@avvcanyado`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`, ...temps,
+    `SUMMARY:${net(a.titol)}`, a.lloc ? `LOCATION:${net(a.lloc)}` : '', a.descripcio ? `DESCRIPTION:${net(a.descripcio)}` : '',
+    'END:VEVENT', 'END:VCALENDAR'].filter(Boolean).join('\r\n');
+}
+
+function fitxaHTML(a, hoy) {
+  const gran = a.cartell || a.imatge;
+  const dates = a.tipus === 'periodica' ? datesPeriodica(a, hoy, 8) : [a.data];
+  const propera = dates[0] || a.data;
+  const passada = propera < hoy;
+  const imatge = gran ? `<a class="fitxa__imatge${a.cartell && !a.imatge ? ' fitxa__imatge--cartell' : ''}" href="/assets/img/${gran}.jpg" target="_blank" rel="noopener" aria-label="Obre ${a.cartell ? 'el cartell' : 'la imatge'} a mida completa"><img src="/assets/img/${gran}.jpg" alt=""></a>` : '';
+  const files = [
+    ['Quan', a.tipus === 'periodica' ? `${esc(a.regla?.text || '')}${a.regla?.text ? '. ' : ''}Properes dates:` : esc(dataLlarga(propera))],
+    ['Horari', esc(horari(a) || 'Per confirmar')],
+    ['On', esc(a.lloc || 'Per confirmar')],
+    a.preu ? ['Preu', esc(a.preu)] : null,
+  ].filter(Boolean);
+  const llistaDates = a.tipus === 'periodica' && dates.length ? `<ul class="fitxa__dates">${dates.map((s) => `<li>${esc(dataLlarga(s))}</li>`).join('')}</ul>` : '';
+  return `<button type="button" class="fitxa__tanca" aria-label="Tanca">×</button>
+  <div class="fitxa__cos">
+    ${imatge}
+    <div class="fitxa__text">
+      <p class="fitxa__rotul">${passada ? 'Activitat feta' : esc(dataLlarga(propera))}</p>
+      <h2 class="fitxa__titol" id="fitxa-titol">${esc(a.titol)}</h2>
+      ${a.pendent ? '<p class="fitxa__avis">Aviat publicarem l\'horari i el programa complet.</p>' : ''}
+      <dl class="fitxa__dades">${files.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}${k === 'Quan' ? llistaDates : ''}</dd></div>`).join('')}</dl>
+      <div class="fitxa__desc">${paragrafs(a.descripcio)}${paragrafs(a.detall)}</div>
+      ${Array.isArray(a.programa) && a.programa.length ? `<h3>Programa</h3><ul class="fitxa__programa">${a.programa.map((x) => `<li>${x.hora ? `<b>${esc(x.hora)}</b> ` : ''}${esc(x.text || x)}</li>`).join('')}</ul>` : ''}
+      <p class="fitxa__accions">
+        ${!passada ? `<a class="boto" data-ics href="#">Afegeix al calendari</a>` : ''}
+        ${/AVV|Eduard Marquina/i.test(a.lloc || '') ? '<a class="enllac-fletxa" href="/contacte">Com arribar-hi <span aria-hidden="true">→</span></a>' : ''}
+      </p>
+    </div>
+  </div>`;
+}
+
+function activaFitxes(activitats, hoy) {
+  if (typeof HTMLDialogElement === 'undefined') return;
+  let dialeg;
+  document.addEventListener('click', (e) => {
+    const disparador = e.target.closest('[data-fitxa]') || (e.target.closest('.targeta__cos') && !e.target.closest('a') ? e.target.closest('.targeta')?.querySelector('[data-fitxa]') : null);
+    if (!disparador) return;
+    const a = activitats.find((x) => x.id === disparador.dataset.fitxa);
+    if (!a) return;
+    e.preventDefault();
+    if (!dialeg) {
+      dialeg = document.createElement('dialog');
+      dialeg.className = 'fitxa';
+      dialeg.setAttribute('aria-labelledby', 'fitxa-titol');
+      dialeg.addEventListener('click', (ev) => { if (ev.target === dialeg || ev.target.closest('.fitxa__tanca')) dialeg.close(); });
+      document.body.append(dialeg);
+    }
+    dialeg.innerHTML = fitxaHTML(a, hoy);
+    const enllac = dialeg.querySelector('[data-ics]');
+    if (enllac) {
+      const data = (a.tipus === 'periodica' ? datesPeriodica(a, hoy, 1)[0] : a.data) || a.data;
+      enllac.href = URL.createObjectURL(new Blob([ics(a, data)], { type: 'text/calendar' }));
+      enllac.download = `${a.id}.ics`;
+    }
+    dialeg.showModal();
+    dialeg.scrollTop = 0;
+    dialeg.querySelector('.fitxa__tanca').focus();
+  });
 }

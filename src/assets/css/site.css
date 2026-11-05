@@ -993,3 +993,83 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
 .peu__mapa { position: absolute; inset: 0; z-index: -1; background: url(/assets/img/mapa-canyado.jpg) center 45% / cover no-repeat; opacity: 0.22; mix-blend-mode: screen; filter: grayscale(0.3) contrast(1.2); }
 .peu__mapa::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--tinta) 0%, transparent 30%, transparent 80%, var(--tinta) 100%); }
 .peu__credit { display: block; margin-top: 0.25rem; font-size: 0.8rem; opacity: 0.7; }
+
+/* ── Targeta: botó «Més informació» i fitxa ampliada ── */
+.targeta__cos { cursor: pointer; }
+.targeta__obre { align-self: flex-start; margin-top: 0.6rem; padding: 0.45rem 0.95rem; font: inherit; font-weight: 700; font-size: 0.92rem; color: var(--granat); background: rgba(122, 59, 46, 0.08); border: 1px solid rgba(122, 59, 46, 0.25); border-radius: 999px; cursor: pointer; transition: background 250ms, color 250ms; }
+.targeta__obre span { display: inline-block; transition: transform 250ms; }
+.targeta:hover .targeta__obre, .targeta__obre:focus-visible { background: var(--granat); color: var(--paper); }
+.targeta:hover .targeta__obre span { transform: translateX(3px); }
+.targeta__obre:focus-visible { outline: 3px solid var(--ocre); outline-offset: 2px; }
+
+.fitxa { width: min(94vw, 62rem); max-height: 92vh; padding: 0; border: 0; border-radius: 22px; background: var(--paper); color: var(--tinta); box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.7); overflow: auto; }
+.fitxa::backdrop { background: rgba(20, 26, 28, 0.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.fitxa__tanca { position: sticky; top: 0.75rem; float: right; z-index: 3; margin: 0.75rem 0.75rem -3.5rem 0; width: 2.8rem; aspect-ratio: 1; border-radius: 50%; border: 0; background: rgba(31, 42, 46, 0.75); color: var(--paper); font-size: 1.6rem; line-height: 1; cursor: pointer; }
+.fitxa__tanca:hover { background: var(--granat); }
+.fitxa__cos { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 820px) { .fitxa__cos { grid-template-columns: 1fr 1.1fr; } }
+.fitxa__imatge { display: block; background: var(--tinta); }
+.fitxa__imatge img { display: block; width: 100%; height: 100%; max-height: 70vh; object-fit: cover; }
+.fitxa__imatge--cartell img { object-fit: contain; background: var(--tinta); }
+@media (min-width: 820px) { .fitxa__imatge img { max-height: none; min-height: 100%; position: sticky; top: 0; } }
+.fitxa__text { padding: clamp(1.5rem, 4vw, 2.5rem); }
+.fitxa__rotul { margin: 0 0 0.4rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--granat); }
+.fitxa__titol { margin: 0 0 1rem; font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.05; }
+.fitxa__avis { padding: 0.6rem 0.9rem; background: rgba(226, 162, 59, 0.15); border-left: 3px solid var(--ocre); font-size: 0.95rem; }
+.fitxa__dades { margin: 0 0 1.25rem; border-top: 2px solid var(--tinta); }
+.fitxa__dades > div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--filet); }
+.fitxa__dades dt { font-weight: 700; }
+.fitxa__dades dd { margin: 0; }
+.fitxa__dates { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+.fitxa__desc p { margin: 0 0 0.9rem; }
+.fitxa__programa { padding-left: 1.1rem; }
+.fitxa__accions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin: 1.5rem 0 0; }
+
+/* ── Entitats col·laboradores ── */
+.entitats { list-style: none; margin: 1.75rem 0 1.25rem; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 700px) { .entitats { grid-template-columns: 1fr 1fr; } }
+.entitat { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; padding: 1.25rem; background: var(--paper); border: 1px solid var(--filet); border-radius: 16px; transition: transform 250ms, box-shadow 250ms; }
+.entitat:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -24px rgba(122, 59, 46, 0.5); }
+.entitat__inicials { display: grid; place-items: center; width: 3.2rem; aspect-ratio: 1; border-radius: 50%; background: var(--granat-clar); color: var(--granat); font-family: var(--f-titol); font-weight: 800; letter-spacing: 0.02em; }
+.entitat h3 { margin: 0.1rem 0 0.3rem !important; font-size: 1.15rem; }
+.entitat p { margin: 0 0 0.4rem; color: var(--gris); }
+.entitat a { font-weight: 700; }
+
+/* ── Cinta de logos en moviment, entre Properes i el banner de l'AVV ── */
+main > .cinta-logos { max-width: none; padding-inline: 0; }
+.cinta-logos { position: relative; height: clamp(9rem, 16vw, 13rem); overflow: hidden; background: var(--crema); }
+.cinta-logos span { position: absolute; left: -10%; right: -10%; height: clamp(4.5rem, 8vw, 6.5rem); background: url(/assets/img/logo.svg) repeat-x 0 50% / auto 100%; }
+.cinta-logos span:first-child { top: 8%; transform: rotate(-3deg); opacity: 0.16; }
+.cinta-logos span:last-child { bottom: 6%; transform: rotate(2.5deg); opacity: 0.09; background-position: 40% 50%; }
+@media (prefers-reduced-motion: no-preference) {
+  .cinta-logos span:first-child { animation: marca-a 50s linear infinite; }
+  .cinta-logos span:last-child { animation: marca-b 60s linear infinite; }
+}
+
+/* ── Hero: la masia antiga es veu més ── */
+.heroi__antic { opacity: 0.85; filter: sepia(0.15); background-position: center 35%; }
+.heroi__antic::after { background: radial-gradient(ellipse 48% 50% at 50% 34%, rgba(244, 240, 234, 0.9) 0%, rgba(244, 240, 234, 0.6) 55%, rgba(244, 240, 234, 0.12) 100%), linear-gradient(180deg, transparent 0%, transparent 72%, var(--crema) 100%); }
+
+/* ── Pila: en passar-hi per sobre, la principal va al fons i les tres es posen davant ── */
+@media (hover: hover) and (min-width: 960px) {
+  .pila__f--principal { transition: transform 600ms cubic-bezier(.2, .7, .2, 1), filter 400ms, opacity 400ms; }
+  .heroi--centre .heroi__foto:hover .pila__f--principal { z-index: 0; transform: scale(0.82); filter: blur(2px) brightness(0.9); opacity: 0.55; }
+  .heroi--centre .heroi__foto:hover .pila__f--e,
+  .heroi--centre .heroi__foto:hover .pila__f--a,
+  .heroi--centre .heroi__foto:hover .pila__f--d { z-index: 3; }
+  .heroi--centre .heroi__foto:hover .pila__f--e { transform: translate(-46%, 8%) rotate(-8deg) scale(0.66); }
+  .heroi--centre .heroi__foto:hover .pila__f--a { transform: translate(0, -10%) rotate(2deg) scale(0.7); z-index: 4; }
+  .heroi--centre .heroi__foto:hover .pila__f--d { transform: translate(46%, 12%) rotate(7deg) scale(0.66); }
+  .heroi--centre .heroi__foto:hover .marc__extra, .heroi--centre .heroi__foto:hover::before, .heroi--centre .heroi__foto:hover::after { opacity: 0.25; }
+}
+
+/* ── Fitxa al mòbil: dades apilades ── */
+@media (max-width: 600px) {
+  .fitxa__dades > div { grid-template-columns: 1fr; gap: 0.15rem; }
+  .fitxa__dades dt { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--granat); }
+}
+/* Foto central més gran */
+@media (min-width: 960px) {
+  .heroi__escena { grid-template-columns: 1fr minmax(0, 46rem) 1fr; gap: 3rem; }
+}
+.heroi__escena .heroi__foto { width: min(100%, 48rem); }
