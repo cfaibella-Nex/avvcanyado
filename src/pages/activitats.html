@@ -1,0 +1,53 @@
+<!--meta {"title": "Activitats", "desc": "Agenda de l'AVV Canyadó: properes activitats, tallers setmanals del curs i activitats anteriors.", "nav": "activitats"} -->
+<!doctype html>
+<html lang="ca">
+<head>
+{{head}}
+</head>
+<body>
+{{header}}
+<main id="contingut">
+
+  <header class="pagina">
+    <h1>Activitats</h1>
+    <p class="entradeta">Festes, trobades i tallers per a tot el veïnat. Les activitats de l'AVV són obertes a tothom, siguis soci/sòcia o no.</p>
+    <nav class="dins-pagina" aria-label="En aquesta pàgina">
+      <a href="#properes">Properes</a>
+      <a href="#tallers">Tallers del curs</a>
+      <a href="#anteriors">Anteriors</a>
+    </nav>
+  </header>
+
+  <section class="bloc" id="properes" aria-labelledby="t-properes">
+    <h2 id="t-properes">Properes</h2>
+    <ul class="agenda agenda--gran" data-agenda="futures" data-cartell="si">
+{{agenda:futures}}
+    </ul>
+  </section>
+
+  <section class="bloc" id="tallers" aria-labelledby="t-tallers">
+    <div class="bloc__cap">
+      <h2 id="t-tallers">Tallers del curs {{curs}}</h2>
+    </div>
+    <p class="nota">Tallers organitzats per l'AVV durant tot el curs. Per apuntar-t'hi, pregunta al centre on es fa o passa pel local de l'AVV.</p>
+    <div class="setmana">
+{{tallers}}
+    </div>
+    <details class="llegenda">
+      <summary>On són els centres</summary>
+      <ul>{{centres}}</ul>
+    </details>
+  </section>
+
+  <section class="bloc" id="anteriors" aria-labelledby="t-anteriors">
+    <h2 id="t-anteriors">Anteriors</h2>
+    <ul class="agenda agenda--passada" data-agenda="passades" data-cartell="si">
+{{agenda:passades}}
+    </ul>
+  </section>
+
+</main>
+{{footer}}
+{{dades-activitats}}
+</body>
+</html>

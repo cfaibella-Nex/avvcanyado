@@ -1,0 +1,52 @@
+{
+  "_info": "Agenda de l'AVV Canyadó. Cada activitat és un objecte. 'tipus': 'esdeveniment' (té data) o 'periodica' (té regla). Les dates en format AAAA-MM-DD. Les passades es mostren soles a 'Activitats anteriors'.",
+  "activitats": [
+    {
+      "id": "una-cadira-mes",
+      "tipus": "periodica",
+      "titol": "Una cadira més",
+      "subtitol": "Tardeos veïnals",
+      "regla": { "diaSetmana": 4, "ordinals": [1, 3], "text": "1r i 3r dijous de cada mes" },
+      "hora": "17.30",
+      "horaFi": "19.30",
+      "lloc": "Seu de l'AVV, c/ Eduard Marquina, 25-27",
+      "descripcio": "Berenars, participació ciutadana, jocs de taula, contacontes, xerrades i tallers. Un espai obert a tothom, de totes les edats, per conèixer el veïnat i fer barri. Amb el suport de NexSocial.",
+      "cartell": "cartell-una-cadira-mes",
+      "preu": "Gratuït"
+    },
+    {
+      "id": "convivencies-nadal-2026",
+      "tipus": "esdeveniment",
+      "titol": "Convivències de Nadal",
+      "data": "2026-12-18",
+      "hora": null,
+      "lloc": null,
+      "descripcio": "Ens retrobem per celebrar les festes amb el veïnat. Aviat publicarem l'horari i el programa.",
+      "cartell": null,
+      "pendent": true
+    },
+    {
+      "id": "canyaween-2026",
+      "tipus": "esdeveniment",
+      "titol": "Canyaween",
+      "data": "2026-10-31",
+      "hora": "17.00",
+      "horaFi": "20.30",
+      "lloc": "La Baixadeta",
+      "descripcio": "Gimcana de Halloween pel barri, concurs de disfresses, música, ball i màgia amb el Mag Yench. Amb la col·laboració dels comerços de Canyadó.",
+      "cartell": "cartell-canyaween-2026",
+      "preu": "Infants: 2 €"
+    },
+    {
+      "id": "castanyada-2026",
+      "tipus": "esdeveniment",
+      "titol": "Castanyada de Canyadó",
+      "data": "2026-10-30",
+      "hora": "17.00",
+      "lloc": "Masia de Can Canyadó",
+      "descripcio": "Castanyes torrades al foc per a tot el barri. Gràcies a tothom que hi va venir!",
+      "cartell": "cartell-castanyada-2026",
+      "suport": "Amb el suport de l'Ajuntament de Badalona"
+    }
+  ]
+}

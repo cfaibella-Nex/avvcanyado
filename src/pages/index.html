@@ -1,0 +1,89 @@
+<!--meta {"title": "", "desc": "L'associació del veïnat de Canyadó (Badalona). Activitats, festes, tallers i la veu del barri davant l'Ajuntament des de 1978.", "nav": "", "path": "/"} -->
+<!doctype html>
+<html lang="ca">
+<head>
+{{head}}
+</head>
+<body class="inici">
+{{header}}
+<main id="contingut">
+
+  <section class="heroi">
+    <div class="heroi__text">
+      <h1>Fent + Canyadó des de 1978</h1>
+      <p class="entradeta">Som l'associació del veïnat de Canyadó. Organitzem les festes i les activitats del barri i portem les vostres propostes i queixes a l'Ajuntament.</p>
+      <p class="botons">
+        <a class="boto" href="/participa">Fes-te soci/sòcia</a>
+        <a class="boto boto--linia" href="/activitats">Mira què fem</a>
+      </p>
+    </div>
+    <figure class="heroi__foto marc">
+      <picture>
+        <source srcset="/assets/img/masia-800.webp 800w, /assets/img/masia.webp 1600w" sizes="(min-width: 960px) 46vw, 92vw" type="image/webp">
+        <img src="/assets/img/masia-800.jpg" srcset="/assets/img/masia-800.jpg 800w, /assets/img/masia.jpg 1600w" sizes="(min-width: 960px) 46vw, 92vw" alt="La torre de la Masia de Can Canyadó amb la senyera, en un dia de cel blau" width="1456" height="1080" fetchpriority="high">
+      </picture>
+    </figure>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-properes">
+    <div class="bloc__cap">
+      <h2 id="t-properes">Properes activitats</h2>
+      <a class="enllac-fort" href="/activitats">Tota l'agenda i els tallers</a>
+    </div>
+    <ul class="agenda" data-agenda="futures" data-max="3">
+{{agenda:futures:3}}
+    </ul>
+  </section>
+
+  <section class="bloc destacat" aria-labelledby="t-cadira">
+    <div class="destacat__img">
+      <picture>
+        <source srcset="/assets/img/una-cadira-mes-il-700.webp 700w, /assets/img/una-cadira-mes-il.webp 1200w" sizes="(min-width: 960px) 44vw, 92vw" type="image/webp">
+        <img src="/assets/img/una-cadira-mes-il-700.jpg" alt="Il·lustració: veïns i veïnes de totes les edats llegint i xerrant al voltant d'una taula" width="1200" height="800" loading="lazy">
+      </picture>
+    </div>
+    <div class="destacat__text">
+      <h2 id="t-cadira">Una cadira més</h2>
+      <p class="entradeta">El primer i el tercer dijous de cada mes, de 17.30 a 19.30 h, el local de l'AVV s'omple de veïnat: berenar, jocs de taula, contacontes, xerrades i tallers.</p>
+      <p>És obert a tothom, de qualsevol edat. No cal apuntar-s'hi: vine i agafa una cadira.</p>
+      <p class="properes-dates">Properes trobades: <strong data-propers-dies="una-cadira-mes">{{propers:una-cadira-mes}}</strong></p>
+    </div>
+  </section>
+
+  <section class="bloc" aria-labelledby="t-participa">
+    <h2 id="t-participa">Tres maneres de fer barri</h2>
+    <div class="tres">
+      <div class="tres__item">
+        <h3>Fes-te soci/sòcia</h3>
+        <p>La quota és de 10 € l'any. Ajuda a pagar les festes i el local, i et dona veu i vot a l'assemblea.</p>
+        <a href="/participa#soci">Com fer-te soci/sòcia</a>
+      </div>
+      <div class="tres__item">
+        <h3>Proposa una activitat</h3>
+        <p>Tens una idea, un taller o una queixa sobre el barri? Explica-ho a la Junta i en parlem.</p>
+        <a href="/participa#proposa">Fes una proposta</a>
+      </div>
+      <div class="tres__item">
+        <h3>Fes servir el local</h3>
+        <p>Si ets soci/sòcia, pots reservar la sala de l'AVV per a activitats del barri.</p>
+        <a href="/participa#local">Condicions del local</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="franja" aria-labelledby="t-visita">
+    <div class="franja__dins">
+      <h2 id="t-visita">Passa pel local</h2>
+      <div class="franja__cols">
+        <p><strong>c/ Eduard Marquina, 25-27, entresol</strong><br>Cantonada amb Pompeu Fabra, a sobre del restaurant Les Banderes.</p>
+        <p><strong>Dimarts i dimecres</strong>, de 17 a 19 h<br><strong>Dijous</strong>, de 19 a 21 h<br>Excepte festius.</p>
+        <p><a href="/contacte">Com arribar-hi</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+{{footer}}
+{{dades-activitats}}
+</body>
+</html>
