@@ -1,4 +1,26 @@
 {
-  "_info": "Llibres i publicacions de l'AVV. Camps: titol, autor, any, descripcio, preu (text, p. ex. '15 €'), portada (nom de la imatge a src/assets/img, opcional), estat ('disponible' | 'exhaurit'). Si la llista és buida, la pàgina ho indica.",
-  "publicacions": []
+  "_info": "Llibres i publicacions de l'AVV. Camps: titol, subtitol, autor, il·lustracions, any, descripcio, preu (text, p. ex. '15 €'), portada (nom de la imatge a src/assets/img, opcional), estat ('disponible' | 'exhaurit').",
+  "publicacions": [
+    {
+      "titol": "Canyadó, la Porta de Llevant",
+      "subtitol": "50 anys de barri, 5 segles a Badalona",
+      "autor": "Pedro Jesús Fernández i Xavier Navarro",
+      "any": null,
+      "descripcio": null,
+      "preu": null,
+      "portada": "portada-porta-llevant",
+      "estat": "disponible"
+    },
+    {
+      "titol": "El drac del parc de Badalona",
+      "subtitol": null,
+      "autor": "Pedro Jesús Fernández",
+      "il·lustracions": "Neus Bonet i Sala",
+      "any": null,
+      "descripcio": null,
+      "preu": null,
+      "portada": "portada-drac-parc",
+      "estat": "disponible"
+    }
+  ]
 }

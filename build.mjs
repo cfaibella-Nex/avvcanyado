@@ -98,11 +98,19 @@ function publicacionsHTML() {
     return `<div class="buit"><p class="buit__titol">Aviat hi trobaràs els llibres de l'AVV</p><p>Estem recopilant les publicacions que ha editat l'associació al llarg dels anys. Mentrestant, pregunta per elles al local.</p></div>`;
   }
   return `<ul class="llibres">${llista.map((l) => `<li class="llibre">
-    ${l.portada ? `<img class="llibre__portada" src="/assets/img/${l.portada}.webp" alt="Portada de ${esc(l.titol)}" loading="lazy" width="300" height="420">` : `<div class="llibre__portada llibre__portada--buida" aria-hidden="true">${esc(l.titol)}</div>`}
-    <div class="llibre__info"><h3>${esc(l.titol)}</h3>
-    ${l.autor ? `<p class="llibre__autor">${esc(l.autor)}${l.any ? `, ${esc(l.any)}` : ''}</p>` : ''}
-    ${l.descripcio ? `<p>${esc(l.descripcio)}</p>` : ''}
-    <p class="llibre__preu">${l.estat === 'exhaurit' ? 'Exhaurit' : esc(l.preu || 'Pregunta el preu al local')}</p></div>
+    ${l.portada ? `<a class="llibre__coberta" href="/assets/img/${l.portada}.jpg" aria-label="Portada de ${esc(l.titol)} (obre la imatge gran)"><img class="llibre__portada" src="/assets/img/${l.portada}.webp" alt="" loading="lazy"></a>` : `<span class="llibre__portada llibre__portada--buida" aria-hidden="true">${esc(l.titol)}</span>`}
+    <div class="llibre__info">
+      <h3>${esc(l.titol)}</h3>
+      ${l.subtitol ? `<p class="llibre__subtitol">${esc(l.subtitol)}</p>` : ''}
+      <dl class="llibre__fitxa">
+        ${l.autor ? `<div><dt>Text</dt><dd>${esc(l.autor)}</dd></div>` : ''}
+        ${l['il·lustracions'] ? `<div><dt>Il·lustracions</dt><dd>${esc(l['il·lustracions'])}</dd></div>` : ''}
+        ${l.any ? `<div><dt>Any</dt><dd>${esc(l.any)}</dd></div>` : ''}
+        <div><dt>Edita</dt><dd>Associació Veïnal de Canyadó</dd></div>
+      </dl>
+      ${l.descripcio ? `<p>${esc(l.descripcio)}</p>` : ''}
+      <p class="llibre__preu">${l.estat === 'exhaurit' ? 'Exhaurit' : esc(l.preu || "Disponible al local de l'AVV")}</p>
+    </div>
   </li>`).join('')}</ul>`;
 }
 

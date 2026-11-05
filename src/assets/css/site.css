@@ -320,12 +320,22 @@ main > .espais { max-width: none; padding-inline: 0; }
 .buit { border: 2px dashed var(--filet); border-radius: 14px; padding: clamp(1.5rem, 4vw, 2.5rem); max-width: 46rem; }
 .buit__titol { font-family: var(--f-titol); font-weight: 700; font-size: 1.4rem; margin-bottom: 0.5rem; }
 .buit p:last-child { margin: 0; }
-.llibres { list-style: none; margin: 0; padding: 0; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
-.llibre__portada { width: 100%; aspect-ratio: 5 / 7; object-fit: cover; border-radius: 4px; box-shadow: 0 10px 24px rgba(31, 42, 46, 0.16); margin-bottom: 1rem; }
-.llibre__portada--buida { display: grid; place-items: center; padding: 1.5rem; text-align: center; background: var(--granat); color: var(--paper); font-family: var(--f-titol); font-weight: 700; font-size: 1.3rem; }
-.llibre h3 { margin-bottom: 0.25rem; }
-.llibre__autor { color: var(--gris); }
-.llibre__preu { font-weight: 700; color: var(--granat); }
+.llibres { list-style: none; margin: 0; padding: 0; display: grid; gap: 3.5rem 4rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); }
+.llibre { display: grid; grid-template-columns: minmax(8rem, 13rem) 1fr; gap: 1.75rem; align-items: start; }
+.llibre__coberta { display: block; }
+.llibre__portada { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 2px 0 rgba(31, 42, 46, 0.08), 0 22px 40px -18px rgba(31, 42, 46, 0.55); transform: rotate(-2deg); transition: transform 220ms ease-out; }
+.llibre:nth-child(even) .llibre__portada { transform: rotate(2deg); }
+.llibre__coberta:hover .llibre__portada { transform: rotate(0) scale(1.02); }
+.llibre__portada--buida { display: grid; place-items: center; aspect-ratio: 5 / 7; padding: 1.5rem; text-align: center; background: var(--granat); color: var(--paper); font-family: var(--f-titol); font-weight: 700; font-size: 1.3rem; }
+.llibre h3 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+.llibre__subtitol { font-style: italic; color: var(--gris); margin-bottom: 1rem; }
+.llibre__fitxa { margin: 0 0 1rem; border-top: 1px solid var(--filet); }
+.llibre__fitxa > div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--filet); font-size: 1rem; }
+.llibre__fitxa dt { color: var(--gris); }
+.llibre__fitxa dd { margin: 0; font-weight: 700; }
+.llibre__preu { display: inline-block; font-weight: 700; color: var(--granat-fosc); background: var(--granat-clar); padding: 0.35rem 0.85rem; border-radius: 99px; font-size: 0.95rem; }
+@media (max-width: 520px) { .llibre { grid-template-columns: 7.5rem 1fr; gap: 1.25rem; } .llibre h3 { font-size: 1.3rem; } .llibre__fitxa > div { grid-template-columns: 1fr; gap: 0; } }
+@media (prefers-reduced-motion: reduce) { .llibre__portada, .llibre:nth-child(even) .llibre__portada, .llibre__coberta:hover .llibre__portada { transform: none; } }
 
 /* ── Participa ── */
 .xifra { font-family: var(--f-titol); font-weight: 800; color: var(--granat); font-size: 1.25rem; margin-bottom: 0.75rem; }
