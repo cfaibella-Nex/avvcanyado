@@ -464,7 +464,8 @@ main > .espais { max-width: none; padding-inline: 0; }
 .contacte a { font-weight: 700; font-size: 1.2rem; word-break: break-word; }
 .foto-local { max-width: 34rem; }
 
-.mapa { border-radius: 14px; overflow: hidden; border: 1px solid var(--filet); box-shadow: 0 10px 30px -14px rgba(122, 59, 46, 0.35); aspect-ratio: 16 / 7; min-height: 18rem; background: var(--granat-clar); }
+.mapa { border-radius: 14px; overflow: hidden; border: 1px solid var(--filet); box-shadow: 0 10px 30px -14px rgba(122, 59, 46, 0.35); aspect-ratio: 16 / 7; width: 100%; background: var(--granat-clar); }
+@media (max-width: 700px) { .mapa { aspect-ratio: auto; height: 20rem; } }
 .mapa iframe { display: block; width: 100%; height: 100%; border: 0; }
 
 /* ── Peu ── */
@@ -535,22 +536,29 @@ main > .museu { max-width: none; padding-inline: 0; }
 .museu__crida { margin: 0; color: var(--crema); }
 .museu__dins { padding-bottom: clamp(3.5rem, 8vw, 5.5rem); }
 
-/* Tríptic final «Abans i ara» */
+/* Banners «Abans» i «Ara»: tres fotos de punta a punta */
 .triptic { position: relative; margin: 0; isolation: isolate; }
-.triptic__fotos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; height: clamp(24rem, 44vw, 34rem); }
+.triptic__fotos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; height: clamp(17rem, 30vw, 24rem); }
 .triptic__f { position: relative; display: block; overflow: hidden; }
 .triptic__f picture, .triptic__f img { display: block; width: 100%; height: 100%; }
 .triptic__f img { object-fit: cover; transition: transform 600ms cubic-bezier(.2, .7, .2, 1); }
-.triptic__f--abans img { filter: sepia(0.35) contrast(1.05); }
-.triptic__f:hover img { transform: scale(1.04); }
-.triptic__etiqueta { position: absolute; top: 1rem; left: 1rem; z-index: 2; padding: 0.3rem 0.7rem; background: var(--paper); color: var(--tinta); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
-.triptic__f--abans .triptic__etiqueta { background: var(--ocre); }
-.triptic::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(0deg, rgba(31, 42, 46, 0.92) 0%, rgba(31, 42, 46, 0.45) 38%, rgba(31, 42, 46, 0.05) 70%); }
-.triptic__text { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; max-width: var(--amplada); margin: 0 auto; padding: 0 var(--marge) clamp(1.75rem, 4vw, 3rem); pointer-events: none; }
-.triptic__text > * { max-width: 38rem; }
-.triptic__titol { margin: 0 0 0.5rem; font-family: var(--f-titol); font-weight: 800; font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--paper); }
-.triptic__text p:last-child { margin: 0; color: var(--crema); }
-@media (max-width: 699px) { .triptic__fotos { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 30rem; } .triptic__f--abans { grid-row: span 2; } }
+.triptic--abans .triptic__f img { filter: sepia(0.4) contrast(1.05) saturate(0.85); }
+.triptic__f::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(31, 42, 46, 0.85) 0%, rgba(31, 42, 46, 0.15) 45%, rgba(31, 42, 46, 0.25) 100%); }
+.triptic__f:hover img { transform: scale(1.05); }
+.triptic__peu { position: absolute; z-index: 2; left: 1rem; right: 1rem; bottom: 0.9rem; font-family: var(--f-titol); font-weight: 700; font-size: clamp(0.95rem, 1.6vw, 1.15rem); line-height: 1.2; color: var(--paper); }
+.triptic__cap { position: absolute; z-index: 3; top: 1.25rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 1rem 0.5rem 0.5rem; background: rgba(31, 42, 46, 0.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); white-space: nowrap; pointer-events: none; }
+.triptic__etiqueta { padding: 0.3rem 0.7rem; background: var(--paper); color: var(--tinta); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.triptic--abans .triptic__etiqueta { background: var(--ocre); }
+.triptic__titol { font-family: var(--f-titol); font-weight: 700; color: var(--paper); font-size: 1rem; }
+@media (max-width: 699px) {
+  .triptic__fotos { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 26rem; }
+  .triptic__f:first-child { grid-column: span 2; }
+  .triptic__cap { left: 1rem; transform: none; }
+  .triptic__titol { display: none; }
+}
+.museu__dins--cap { padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+.museu__dins--cami { padding-block: clamp(3rem, 7vw, 5rem); }
+
 
 .cronologia--museu { max-width: 64rem; margin-top: 3rem; border-left-color: var(--ocre); }
 .cronologia--museu li { padding-bottom: 2.5rem; }
@@ -560,14 +568,11 @@ main > .museu { max-width: none; padding-inline: 0; }
 .cronologia--museu .peca { margin-top: 1.25rem; max-width: 20rem; }
 @media (min-width: 900px) {
   .cronologia--museu li { grid-template-columns: 8rem 1fr 15rem; gap: 2rem; align-items: start; }
-  .cronologia--museu li:has(.peca) { padding-bottom: 1.5rem; }
-  .cronologia--museu li:last-child .peca { max-width: 12rem; justify-self: center; }
   .cronologia--museu .peca { margin-top: 0; }
 }
 
 /* Peça de museu: foto amb passepartout, lleument inclinada, i cartel·la */
 .peca { --r: -2deg; margin: 0; padding: 0.6rem 0.6rem 0; background: var(--paper); box-shadow: 0 22px 45px -18px rgba(0, 0, 0, 0.75); transform: rotate(var(--r)); transition: transform 300ms cubic-bezier(.2, .7, .2, 1), box-shadow 300ms; }
-.cronologia--museu li:nth-child(even) .peca { --r: 2.5deg; }
 .peca a { display: block; overflow: hidden; }
 .peca img { display: block; width: 100%; height: auto; }
 .peca:hover, .peca:focus-within { transform: rotate(0) translateY(-4px) scale(1.02); box-shadow: 0 30px 55px -18px rgba(0, 0, 0, 0.85); }
@@ -645,4 +650,44 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
 .vel--festa .vel__foto img { object-position: 50% 55%; }
 .vel--festa .vel__text { padding-block: clamp(5rem, 14vw, 10rem) clamp(2.5rem, 6vw, 4rem); }
 .vel .dins-pagina a { color: var(--paper); text-decoration-color: var(--ocre); text-underline-offset: 0.3em; }
-.cronologia--museu li:nth-child(5) .peca { max-width: 13rem; justify-self: center; }
+
+/* Línia del temps en zig-zag: el camí entre «Abans» i «Ara» */
+@media (min-width: 900px) {
+  .cronologia--zigzag { position: relative; max-width: 62rem; margin: 0 auto; border-left: 0; }
+  .cronologia--zigzag::before { content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: linear-gradient(180deg, transparent, var(--ocre) 4%, var(--ocre) 96%, transparent); }
+  .cronologia--zigzag li { display: block; width: 50%; padding: 0 3.25rem 0 0; text-align: right; }
+  .cronologia--zigzag li + li { margin-top: -2.25rem; }
+  .cronologia--zigzag li:nth-child(even) { margin-left: 50%; padding: 0 0 0 3.25rem; text-align: left; }
+  .cronologia--zigzag li::before { top: 0.6rem; left: auto; right: -7px; }
+  .cronologia--zigzag li:nth-child(even)::before { left: -7px; right: auto; }
+  .cronologia--zigzag .cronologia__any { display: block; margin-bottom: 0.25rem; }
+  .cronologia--zigzag .cronologia__cos { max-width: 24rem; margin-left: auto; }
+  .cronologia--zigzag li:nth-child(even) .cronologia__cos { margin-left: 0; }
+  .cronologia--zigzag li.amb-peca { padding-bottom: 2.5rem; }
+  .cronologia--zigzag .peca:hover { z-index: 3; position: relative; }
+}
+/* Peces en zig-zag: alternen dreta i esquerra; quan cal, la foto ocupa
+   la meitat buida, al costat del text, i fa camí d'un costat a l'altre. */
+.cronologia--zigzag .peca { text-align: left; }
+.cronologia--zigzag .peca-d .peca { --r: 3.5deg; }
+.cronologia--zigzag .peca-e .peca { --r: -3.5deg; }
+@media (min-width: 900px) {
+  .cronologia--zigzag .peca { position: relative; z-index: 2; width: min(18rem, 86%); margin: 1.5rem 0 0 auto; }
+  .cronologia--zigzag li:nth-child(even) .peca { margin: 1.5rem auto 0 0; }
+  .cronologia--zigzag .peca-alta .peca { width: min(14rem, 70%); }
+  .cronologia--zigzag li.peca-oposada { position: relative; min-height: 17rem; }
+  .cronologia--zigzag li.peca-oposada.peca-alta { min-height: 23rem; }
+  .cronologia--zigzag li.peca-oposada { margin-top: 0.75rem; }
+  .cronologia--zigzag li.peca-oposada .peca { position: absolute; top: 0; margin: 0; }
+  .cronologia--zigzag li.peca-oposada:nth-child(odd) .peca { left: calc(100% + 3rem); }
+  .cronologia--zigzag li.peca-oposada:nth-child(even) .peca { right: calc(100% + 3rem); left: auto; }
+  .cronologia--zigzag li.peca-oposada + li { margin-top: 0; }
+  .museu__f--4, .museu__f--5, .museu__f--6, .museu__f--7 { opacity: 0.4; }
+}
+@media (max-width: 899px) {
+  .cronologia--zigzag .peca { width: 78%; max-width: 20rem; margin: 1.25rem 0 0; }
+  .cronologia--zigzag .peca-d .peca { margin-left: auto; margin-right: 0.25rem; }
+  .cronologia--zigzag .peca-alta .peca { width: 62%; }
+  .cronologia--zigzag li.amb-peca { padding-bottom: 2rem; }
+  .triptic__cap { padding: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
