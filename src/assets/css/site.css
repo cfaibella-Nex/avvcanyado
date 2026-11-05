@@ -1132,3 +1132,19 @@ main > .cinta-logos { max-width: none; padding-inline: 0; }
   .soci-banda__foto img { object-position: 70% 30% !important; }
   .soci-banda__dins { padding-block: 9rem 2.5rem; }
 }
+
+/* Entitats: només logos */
+.logos-entitats { list-style: none; margin: 2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem 3rem; }
+.logos-entitats li { flex: 0 1 auto; }
+.logos-entitats img { display: block; width: auto; height: clamp(3.5rem, 7vw, 5.5rem); max-width: 15rem; object-fit: contain; mix-blend-mode: multiply; filter: saturate(0.95); transition: transform 250ms; }
+.logos-entitats li:nth-child(1) img { height: clamp(2.6rem, 4.5vw, 3.6rem); }
+.logos-entitats li:nth-child(3) img { height: clamp(4.5rem, 8vw, 6.5rem); }
+.logos-entitats a:hover img { transform: scale(1.04); }
+@media (max-width: 640px) { .logos-entitats { justify-content: center; } }
+
+/* Peu: vista aèria i plànol de carrers del barri */
+.peu__mapa { opacity: 1; mix-blend-mode: normal; filter: none; background: none; }
+.peu__aeria, .peu__carrers { position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; }
+.peu__aeria { background-image: url(/assets/img/peu-aeria.jpg); background-position: 40% 45%; opacity: 0.4; filter: saturate(0.7); -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 65%); mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 65%); }
+.peu__carrers { background-image: url(/assets/img/peu-carrers.jpg); background-position: 50% 70%; opacity: 0.75; -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 65%); mask-image: linear-gradient(90deg, transparent 30%, #000 65%); }
+.peu__mapa::after { background: linear-gradient(90deg, rgba(31, 42, 46, 0.55) 0%, rgba(31, 42, 46, 0.7) 40%, rgba(31, 42, 46, 0.45) 100%), linear-gradient(180deg, var(--tinta) 0%, transparent 18%, transparent 80%, var(--tinta) 100%); }
