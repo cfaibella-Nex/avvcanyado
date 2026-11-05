@@ -774,3 +774,17 @@ main > .soci-banda { max-width: none; padding-inline: 0; }
   .heroi__marca { inset: 0; }
   .heroi .heroi__foto { margin-inline: 0.75rem; }
 }
+
+/* 2026: el cartell de la festa, penjat sobre la foto de la plaça */
+.cronologia__foto--cartell .cronologia__fons img { filter: blur(2px) saturate(0.7) brightness(0.7); }
+.cronologia__foto--cartell .cronologia__cartell { position: absolute; z-index: 1; top: 50%; left: 50%; width: auto; height: 82%; max-width: 70%; object-fit: contain; transform: translate(-50%, -50%) rotate(-3deg); box-shadow: 0 24px 50px -16px rgba(0, 0, 0, 0.8); border: 0.5rem solid var(--paper); background: var(--paper); transition: transform 400ms cubic-bezier(.2, .7, .2, 1); }
+.cronologia__foto--cartell:hover .cronologia__cartell { transform: translate(-50%, -52%) rotate(0); }
+.cronologia__foto--cartell:hover .cronologia__fons img { transform: none; }
+@media (max-width: 899px) {
+  .cronologia--zigzag .cronologia__foto--cartell { height: 22rem; }
+  .cronologia__foto--cartell .cronologia__cartell { height: 78%; }
+}
+@media (min-width: 900px) {
+  .cronologia--zigzag li.amb-foto .cronologia__foto--cartell .cronologia__cartell { left: 50%; }
+}
+@media (max-width: 899px) { .cronologia--zigzag li.amb-foto:has(.cronologia__foto--cartell)::before { top: 22.6rem; } .cronologia__foto--cartell .cronologia__peu { bottom: 0.75rem; } }

@@ -17,18 +17,18 @@
       },
       "fotos": [
         {
+          "img": "local-facana",
+          "petita": "local-facana-700",
+          "w": 1364,
+          "h": 1153,
+          "alt": "Entrada del local de l'AVV, amb el rètol groc de l'A.V.V. Canyadó sota els porxos"
+        },
+        {
           "img": "local-sala",
           "petita": "local-sala-800",
           "w": 1600,
           "h": 1200,
           "alt": "La sala gran del local preparada per a una xerrada, amb files de cadires i una pantalla"
-        },
-        {
-          "img": "local-facana",
-          "petita": "local-facana-700",
-          "w": 1364,
-          "h": 1153,
-          "alt": "Façana del local de l'AVV amb el rètol groc de l'A.V.V. Canyadó, sota els porxos"
         },
         {
           "img": "local-sala-taules",
