@@ -1446,3 +1446,7 @@ main > .balcons { max-width: none; padding-inline: 0; }
 @media (min-width: 1150px) {
   .heroi__escena { width: min(calc(100vw - 6rem), 76rem); margin-inline: calc((100% - min(calc(100vw - 6rem), 76rem)) / 2); }
 }
+/* Senefa de logos de punta a punta de la pantalla */
+.fons--logos { overflow: visible !important; }
+.fons__logos { inset: 0 calc(50% - 50vw) !important; }
+html, body { overflow-x: clip; }
