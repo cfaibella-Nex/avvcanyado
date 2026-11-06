@@ -1289,3 +1289,31 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .revista-fons > :not(img) { position: relative; max-width: 30rem; }
 @media (max-width: 759px) { .revista-fons__img { right: -2rem; width: 10rem; opacity: 0.22; } }
 @media (max-width: 759px) { .revista-fons__img { right: 0; top: 0; } }
+
+/* ── Inici: crides de vidre flotants ── */
+.pindola--flota { grid-template-areas: "gran icona"; padding: 1.05rem 1.05rem 1.05rem 2rem; column-gap: 1.4rem; background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.22) 100%); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); border: 1px solid rgba(255, 255, 255, 0.75); color: var(--tinta); box-shadow: 0 24px 50px -22px rgba(31, 42, 46, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.pindola--flota .pindola__gran { font-size: clamp(1.3rem, 1.9vw, 1.6rem); }
+.pindola--flota .pindola__icona { width: 3.2rem; background: var(--granat); color: var(--paper); }
+.pindola--flota:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 100%); color: var(--granat); }
+.pindola--flota:hover .pindola__icona { transform: translateX(4px); }
+@media (min-width: 960px) {
+  .heroi__escena { grid-template-columns: minmax(14rem, 1fr) minmax(0, 46rem) minmax(14rem, 1fr); gap: 0; }
+  .heroi__cta--e.pindola--flota { justify-self: start; align-self: start; margin: -1.5rem 0 0 -1rem; transform: rotate(-4deg); }
+  .heroi__cta--d.pindola--flota { justify-self: end; align-self: start; margin: 1.5rem -1rem 0 0; transform: rotate(4deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .heroi__cta--e.pindola--flota { animation: flota-e 5.5s ease-in-out infinite; }
+  .heroi__cta--d.pindola--flota { animation: flota-d 6.5s ease-in-out 0.8s infinite; }
+  .heroi__cta.pindola--flota:hover { animation-play-state: paused; }
+  @keyframes flota-e { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+  @keyframes flota-d { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+}
+@media (max-width: 959px) {
+  .heroi__escena { grid-template-areas: "foto" "e" "d"; grid-template-columns: auto; gap: 0.9rem; }
+  .pindola--flota { min-width: 17rem; grid-template-columns: 1fr auto; }
+}
+@media (max-width: 959px) {
+  .pindola--flota { padding: 0.6rem 0.6rem 0.6rem 1.4rem; min-width: 15rem; }
+  .pindola--flota .pindola__gran { font-size: 1.1rem; }
+  .pindola--flota .pindola__icona { width: 2.6rem; }
+}
