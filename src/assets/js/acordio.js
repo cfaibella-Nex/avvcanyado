@@ -9,6 +9,19 @@ if (ul) {
   function prepara() {
     const li = items();
     li.forEach((el, i) => {
+      // Si l'activitat té cartell, a la columna es mostra el cartell sencer
+      const a = el.querySelector('a.targeta__media[href*="cartell-"]');
+      const img = el.querySelector('.targeta__img');
+      if (a && img && !img.dataset.cartell) {
+        img.dataset.cartell = '1';
+        img.src = a.getAttribute('href').replace(/\.jpg$/, '.webp');
+        img.classList.add('targeta__img--cartell');
+        if (!el.querySelector('.targeta__fons')) {
+          const fons = document.createElement('img');
+          fons.className = 'targeta__fons'; fons.alt = ''; fons.setAttribute('aria-hidden', 'true'); fons.src = img.src;
+          img.before(fons);
+        }
+      }
       if (!el.dataset.titol) {
         el.dataset.titol = el.querySelector('.targeta__titol')?.textContent.trim() || '';
         const t = el.querySelector('.targeta__data');

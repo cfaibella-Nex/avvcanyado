@@ -1487,3 +1487,6 @@ html, body { overflow-x: clip; }
 }
 @media (min-width: 900px) and (max-width: 1150px) { .acordio--actiu > li.obert { grid-template-columns: 1fr; grid-template-rows: 46% 1fr; } }
 @media (prefers-reduced-motion: reduce) { .acordio--actiu > li.targeta { transition: none; } }
+@media (min-width: 900px) {
+  .acordio--actiu > li.obert .targeta__img--cartell { object-fit: contain !important; padding: 1.25rem !important; }
+}
