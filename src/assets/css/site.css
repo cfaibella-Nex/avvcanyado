@@ -1220,3 +1220,8 @@ main > .veinat-fons { max-width: none; padding-inline: 0; }
 .info__llista { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.45rem; }
 .info p { margin: 0; color: var(--gris); }
 .info--avis { background: rgba(226, 162, 59, 0.12); border-color: rgba(226, 162, 59, 0.45); }
+
+/* Junta: capçalera d'acta com a marca d'aigua oficial */
+.junta-oficial { position: relative; isolation: isolate; }
+.junta-oficial__marca { position: absolute; z-index: -1; right: var(--marge); top: 50%; width: min(62%, 44rem); height: auto; transform: translateY(-40%) rotate(-4deg); opacity: 0.4; pointer-events: none; }
+@media (max-width: 759px) { .junta-oficial__marca { left: 50%; right: auto; width: 115%; transform: translate(-50%, -30%) rotate(-6deg); opacity: 0.22; } .junta-oficial { overflow: clip; } }
