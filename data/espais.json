@@ -121,11 +121,11 @@
       },
       "fotos": [
         {
-          "img": "masia",
-          "petita": "masia-800",
-          "w": 1456,
-          "h": 1080,
-          "alt": "La torre de defensa i la casa de la Masia de Can Canyadó, amb la senyera"
+          "img": "masia-dia-nit",
+          "petita": "masia-dia-nit-1200",
+          "w": 2400,
+          "h": 1000,
+          "alt": "La Masia de Can Canyadó de dia, amb la casa i la torre, i la torre il·luminada de nit"
         }
       ]
     }

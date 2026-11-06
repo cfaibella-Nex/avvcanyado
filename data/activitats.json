@@ -68,6 +68,18 @@
       "descripcio": "Castanyes torrades al foc per a tot el barri. Gràcies a tothom que hi va venir!",
       "cartell": "cartell-castanyada-2026",
       "suport": "Amb el suport de l'Ajuntament de Badalona"
+    },
+    {
+      "id": "reis-mags-2027",
+      "tipus": "esdeveniment",
+      "titol": "Arribada dels Reis Mags",
+      "data": "2027-01-06",
+      "hora": null,
+      "lloc": "Masia de Can Canyadó",
+      "descripcio": "Ses Majestats els Reis d'Orient visiten Canyadó. Porta la carta i vine a rebre'ls amb tot el veïnat. Aviat publicarem l'horari i el recorregut.",
+      "cartell": null,
+      "imatge": "reis-mags-2027-700",
+      "pendent": true
     }
   ]
 }
