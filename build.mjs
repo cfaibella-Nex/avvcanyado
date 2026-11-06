@@ -253,6 +253,7 @@ function render(fitxer, text = null) {
     '{{js-menu}}': `<script type="module" src="/assets/js/menu.js?v=${versio}"></script>\n<script type="module" src="/assets/js/amplia.js?v=${versio}"></script>`,
     '{{js-contacte}}': `<script type="module" src="/assets/js/contacte.js?v=${versio}"></script>`,
     '{{js-carrusel}}': `<script type="module" src="/assets/js/carrusel.js?v=${versio}"></script>`,
+    '{{js-acordio}}': `<script type="module" src="/assets/js/acordio.js?v=${versio}"></script>`,
     '{{js-tallers}}': `<script type="module" src="/assets/js/tallers.js?v=${versio}"></script>`,
   };
   html = html.replace('{{head}}', head);

@@ -25,8 +25,11 @@
   </header>
 
   <section class="bloc fons fons--fosc fons--foc" id="properes" aria-labelledby="t-properes">
-    <h2 id="t-properes">Properes</h2>
-    <ul class="agenda agenda--gran" data-agenda="futures" data-cartell="si">
+    <div class="bloc__cap">
+      <h2 id="t-properes">Properes</h2>
+      <p class="acordio__pista">Passa el cursor o toca una activitat per obrir-la</p>
+    </div>
+    <ul class="agenda agenda--gran agenda--acordio" data-agenda="futures" data-cartell="si" data-acordio>
 {{agenda:futures}}
     </ul>
   </section>
@@ -62,5 +65,6 @@
 {{js-menu}}
 {{dades-activitats}}
 {{js-tallers}}
+{{js-acordio}}
 </body>
 </html>
