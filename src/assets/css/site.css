@@ -1424,3 +1424,13 @@ main > .balcons { max-width: none; padding-inline: 0; }
   .heroi--centre .heroi__foto:hover .pila__f--principal { transform: scale(0.7); opacity: 0.35; }
 }
 @media (min-width: 960px) { .heroi__escena { align-items: center; } .heroi__cta.pindola--flota { align-self: center !important; height: 4.4rem; } }
+
+/* ── Inici: crides als extrems, foto al centre i amunt ── */
+.pindola--flota { width: 17rem; }
+.pindola--flota .pindola__gran { font-size: 1.2rem; white-space: nowrap; }
+@media (min-width: 1150px) {
+  .heroi__escena { width: 100vw; margin-inline: calc(50% - 50vw); padding-inline: clamp(1.5rem, 3vw, 3rem); grid-template-columns: 17rem minmax(0, 44rem) 17rem; grid-template-areas: "e foto d"; justify-content: space-between; align-items: start; gap: 0 1.5rem; }
+  .heroi__cta--e.pindola--flota { justify-self: start !important; align-self: start !important; margin-top: 2.5rem !important; }
+  .heroi__cta--d.pindola--flota { justify-self: end !important; align-self: start !important; margin-top: 2.5rem !important; }
+  .heroi__escena .heroi__foto { width: 100%; justify-self: center; }
+}
