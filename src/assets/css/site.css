@@ -1497,3 +1497,20 @@ html, body { overflow-x: clip; }
 .acordio--actiu > li.targeta, .fons--foc .targeta { background: rgba(255, 255, 255, 0.1); -webkit-backdrop-filter: blur(22px) saturate(1.4); backdrop-filter: blur(22px) saturate(1.4); border: 1px solid rgba(255, 255, 255, 0.55); }
 .fons--foc .targeta__cos { position: relative; background: linear-gradient(165deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.28) 55%, rgba(255, 245, 238, 0.18) 100%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85); }
 .fons--foc .targeta:hover { background: rgba(255, 255, 255, 0.16); }
+
+/* ── Carrusel d'Inici: targetes horitzontals com les columnes d'Activitats ── */
+@media (min-width: 900px) {
+  .carrusel--actiu .agenda--carrusel > li.targeta { display: grid; grid-template-columns: 1.15fr 1fr; width: min(46rem, 66vw); margin-left: calc(min(46rem, 66vw) / -2); height: 27rem !important;
+    transform: translateX(calc(var(--o) * 74%)) scale(calc(1 - var(--abs) * 0.2)) rotateY(calc(var(--o) * -12deg)); }
+  .carrusel--actiu .agenda--carrusel > li .targeta__media { aspect-ratio: auto; height: 100%; }
+  .carrusel--actiu .agenda--carrusel > li .targeta__img--cartell { object-fit: contain !important; padding: 1rem !important; }
+  .carrusel--actiu .agenda--carrusel > li .targeta__cos { padding: 1.6rem 1.5rem 1.4rem; overflow: hidden; }
+  .carrusel--actiu .agenda--carrusel > li .targeta__desc { -webkit-line-clamp: 5; }
+  /* vidre fumat, com a Activitats */
+  .carrusel--actiu .agenda--carrusel > li.targeta { background: rgba(60, 45, 40, 0.08) !important; }
+  .carrusel--actiu .agenda--carrusel > li .targeta__cos { background: linear-gradient(165deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 225, 215, 0.22) 55%, rgba(210, 190, 180, 0.18) 100%) !important; }
+}
+/* Crides d'Inici: el mateix vidre difós */
+.pindola--flota { background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.14) 100%) !important; -webkit-backdrop-filter: blur(22px) saturate(1.5) !important; backdrop-filter: blur(22px) saturate(1.5) !important; border: 1px solid rgba(255, 255, 255, 0.8) !important; box-shadow: 0 18px 40px -22px rgba(31, 42, 46, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important; }
+.pindola--flota:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%) !important; }
+.carrusel .targeta__obre { -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.15) 100%); border: 1px solid rgba(255, 255, 255, 0.85); }

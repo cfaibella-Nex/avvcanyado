@@ -9,7 +9,22 @@ if (arrel) {
 
   const items = () => [...ul.children].filter((li) => li.matches('li'));
 
+  // Si l'activitat té cartell, la targeta mostra el cartell sencer (com a Activitats)
+  function cartells() {
+    items().forEach((el) => {
+      const a = el.querySelector('a.targeta__media[href*="cartell-"]');
+      const img = el.querySelector('.targeta__img');
+      if (!a || !img || img.dataset.cartell) return;
+      img.dataset.cartell = '1';
+      img.src = a.getAttribute('href').replace(/\.jpg$/, '.webp');
+      img.classList.add('targeta__img--cartell');
+      if (!el.querySelector('.targeta__fons')) {
+        const f = document.createElement('img'); f.className = 'targeta__fons'; f.alt = ''; f.setAttribute('aria-hidden', 'true'); f.src = img.src; img.before(f);
+      }
+    });
+  }
   function pinta() {
+    cartells();
     const li = items(); const n = li.length;
     if (n < 2) { arrel.classList.add('carrusel--sol'); return; }
     li.forEach((el, i) => {
