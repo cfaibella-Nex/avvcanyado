@@ -16,6 +16,8 @@
   src: url(/assets/fonts/bricolage-grotesque-latin-ext-wght-normal.woff2) format('woff2-variations');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/cormorant-garamond-latin-ext-500-italic.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20C0, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: 'Atkinson Hyperlegible'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD; }
 @font-face { font-family: 'Atkinson Hyperlegible'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/atkinson-hyperlegible-latin-ext-400-normal.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20C0, U+2C60-2C7F, U+A720-A7FF; }
 @font-face { font-family: 'Atkinson Hyperlegible'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/atkinson-hyperlegible-latin-700-normal.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FEFF, U+FFFD; }
@@ -1317,3 +1319,44 @@ main > .balcons { max-width: none; padding-inline: 0; }
   .pindola--flota .pindola__gran { font-size: 1.1rem; }
   .pindola--flota .pindola__icona { width: 2.6rem; }
 }
+
+/* ── Carrusel 3D de Properes activitats (Inici) ── */
+.carrusel { position: relative; }
+.carrusel__control { display: none; }
+.carrusel--actiu .agenda--carrusel { display: block; position: relative; perspective: 1400px; margin: 0 auto; touch-action: pan-y; user-select: none; transition: height 300ms; }
+.carrusel--actiu .agenda--carrusel > li { position: absolute; top: 1rem; left: 50%; width: min(26rem, 78vw); margin-left: calc(min(26rem, 78vw) / -2);
+  transform: translateX(calc(var(--o) * 62%)) scale(calc(1 - var(--abs) * 0.16)) rotateY(calc(var(--o) * -14deg));
+  opacity: calc(1 - var(--abs) * 0.38); filter: blur(calc(var(--abs) * 1.2px)) saturate(calc(1 - var(--abs) * 0.25));
+  transition: transform 750ms cubic-bezier(.2, .7, .2, 1), opacity 600ms, filter 600ms, box-shadow 600ms; cursor: pointer; }
+.carrusel--actiu .agenda--carrusel > li[data-pos="centre"] { cursor: grab; box-shadow: 0 40px 80px -30px rgba(31, 42, 46, 0.55); }
+.carrusel--actiu .agenda--carrusel > li[data-pos="centre"]:hover { transform: translateY(-4px); }
+.carrusel--actiu .agenda--carrusel > li[data-pos="amagat"] { opacity: 0; pointer-events: none; }
+.carrusel--actiu .agenda--carrusel > li:not([data-pos="centre"]) .targeta__cos { background: rgba(255, 252, 247, 0.6); }
+.carrusel--actiu .carrusel__control { display: flex; align-items: center; justify-content: center; gap: 1.25rem; margin-top: 0.75rem; }
+.carrusel__pista { margin: 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); }
+.carrusel__pista span { margin-right: 0.4rem; color: var(--granat); }
+.carrusel__fletxa { display: grid; place-items: center; width: 2.8rem; aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(122, 59, 46, 0.35); background: rgba(255, 252, 247, 0.6); color: var(--granat); cursor: pointer; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: background 250ms, color 250ms; }
+.carrusel__fletxa svg { width: 1.2rem; height: 1.2rem; }
+.carrusel__fletxa:hover { background: var(--granat); color: var(--paper); }
+@media (max-width: 759px) {
+  .carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 78%)) scale(calc(1 - var(--abs) * 0.14)) rotateY(calc(var(--o) * -10deg)); }
+  .carrusel__pista { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .carrusel--actiu .agenda--carrusel > li { transition: none; } }
+.fons--logos { overflow: clip; }
+
+/* Inici: crides horitzontals, tot cristall i lletra lleugera */
+.pindola--flota { padding: 0.75rem 0.75rem 0.75rem 1.8rem; column-gap: 1.2rem; background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.14) 100%); border: 1px solid rgba(255, 255, 255, 0.7); -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); }
+.pindola--flota .pindola__gran { font-family: var(--f-titol); font-weight: 400; font-size: clamp(1.2rem, 1.6vw, 1.4rem); letter-spacing: 0.005em; color: var(--tinta); }
+.pindola--flota .pindola__icona { width: 2.8rem; background: rgba(255, 255, 255, 0.45); border: 1px solid rgba(255, 255, 255, 0.85); color: var(--tinta); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.pindola--flota:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 100%); }
+.pindola--flota:hover .pindola__gran { color: var(--granat); }
+.pindola--flota:hover .pindola__icona { background: rgba(255, 255, 255, 0.85); color: var(--granat); transform: translateX(4px); }
+@media (min-width: 960px) {
+  .heroi__cta--e.pindola--flota, .heroi__cta--d.pindola--flota { transform: none; align-self: start; margin-top: 0; }
+  .heroi__cta--e.pindola--flota:hover, .heroi__cta--d.pindola--flota:hover { transform: none; }
+}
+@media (max-width: 959px) { .heroi__cta--e.pindola, .heroi__cta--d.pindola { transform: none; } }
+
+/* Inici: entradeta en cursiva elegant (Cormorant Garamond) */
+.heroi--centre .entradeta { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(1.45rem, 2.15vw, 1.75rem); line-height: 1.4; color: var(--tinta); letter-spacing: 0.005em; }

@@ -236,6 +236,7 @@ function render(fitxer, text = null) {
     '{{header}}': partial('header').replaceAll('{{nav}}', navHTML(meta.nav)),
     '{{footer}}': partial('footer').replaceAll('{{any}}', hoy.slice(0, 4)),
     '{{agenda:futures:3}}': llistaHTML(futures.slice(0, 3), hoy),
+    '{{agenda:futures:6}}': llistaHTML(futures.slice(0, 6), hoy),
     '{{agenda:futures}}': llistaHTML(futures, hoy, { ambCartell: true }),
     '{{agenda:passades}}': llistaHTML(passades, hoy, { ambCartell: true }),
     '{{tallers}}': tallersHTML(),
@@ -251,6 +252,7 @@ function render(fitxer, text = null) {
     '{{dades-activitats}}': `<script type="application/json" id="dades-activitats">${JSON.stringify({ activitats: activitats.activitats }).replace(/</g, '\\u003c')}</script>\n<script type="module" src="/assets/js/agenda.js?v=${versio}"></script>`,
     '{{js-menu}}': `<script type="module" src="/assets/js/menu.js?v=${versio}"></script>\n<script type="module" src="/assets/js/amplia.js?v=${versio}"></script>`,
     '{{js-contacte}}': `<script type="module" src="/assets/js/contacte.js?v=${versio}"></script>`,
+    '{{js-carrusel}}': `<script type="module" src="/assets/js/carrusel.js?v=${versio}"></script>`,
     '{{js-tallers}}': `<script type="module" src="/assets/js/tallers.js?v=${versio}"></script>`,
   };
   html = html.replace('{{head}}', head);
