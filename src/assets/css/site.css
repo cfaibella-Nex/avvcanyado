@@ -1225,3 +1225,27 @@ main > .veinat-fons { max-width: none; padding-inline: 0; }
 .junta-oficial { position: relative; isolation: isolate; }
 .junta-oficial__marca { position: absolute; z-index: -1; right: var(--marge); top: 50%; width: min(62%, 44rem); height: auto; transform: translateY(-40%) rotate(-4deg); opacity: 0.4; pointer-events: none; }
 @media (max-width: 759px) { .junta-oficial__marca { left: 50%; right: auto; width: 115%; transform: translate(-50%, -30%) rotate(-6deg); opacity: 0.22; } .junta-oficial { overflow: clip; } }
+
+/* ── Contacte: panell de text integrat + formulari arrodonit ── */
+.formulari-bloc { gap: 0; align-items: stretch; }
+@media (min-width: 960px) { .formulari-bloc { grid-template-columns: 0.9fr 1.3fr; } }
+.contacte-panell { position: relative; z-index: 1; padding: clamp(1.75rem, 4vw, 2.75rem); background: var(--granat); color: var(--crema); border-radius: 36px 36px 0 0; }
+.contacte-panell h2 { color: var(--paper); margin: 0 0 0.75rem; }
+.contacte-panell__intro { margin: 0 0 1.5rem; color: var(--crema); }
+.contacte-panell__dades { margin: 0; display: grid; gap: 0.9rem; }
+.contacte-panell__dades dt { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244, 240, 234, 0.7); }
+.contacte-panell__dades dd { margin: 0.1rem 0 0; color: var(--paper); }
+.contacte-panell a { color: var(--paper); text-decoration-color: var(--ocre); }
+.contacte-panell__avis { margin: 1.5rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(244, 240, 234, 0.25); font-size: 0.9rem; color: rgba(244, 240, 234, 0.85); }
+.formulari-bloc .formulari { border-top: 0; border-radius: 0 0 36px 36px; box-shadow: 0 30px 60px -30px rgba(31, 42, 46, 0.35); padding: clamp(1.75rem, 4vw, 2.75rem); }
+@media (min-width: 960px) {
+  .contacte-panell { border-radius: 40px 0 0 40px; }
+  .formulari-bloc .formulari { border-radius: 0 40px 40px 0; }
+}
+.formulari-bloc .camp input, .formulari-bloc .camp select { border-radius: 999px; padding-inline: 1.1rem; }
+.formulari-bloc .camp textarea { border-radius: 22px; padding: 0.9rem 1.1rem; }
+.formulari-bloc .formulari__final button { border-radius: 999px; padding-inline: 1.6rem; }
+.formulari-bloc .formulari { align-content: start; }
+.formulari-bloc .camp { align-content: start; }
+.formulari-bloc .camp input, .formulari-bloc .camp select { height: 3rem; padding-block: 0; }
+@media (min-width: 960px) { .formulari-bloc .camp textarea { min-height: 11rem; } .formulari-bloc .formulari { align-content: center; } }

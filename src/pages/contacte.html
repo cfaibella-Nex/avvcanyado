@@ -41,10 +41,17 @@
   </section>
 
   <section class="bloc formulari-bloc" id="escriu" aria-labelledby="t-formulari">
-    <div class="formulari-cap">
-      <h2 id="t-formulari">Envia'ns un missatge</h2>
-      <p>Dubtes, propostes, una incidència al barri o ganes de col·laborar. Et respondrem per correu.</p>
-    </div>
+    <aside class="contacte-panell">
+      <h2 id="t-formulari">Parlem</h2>
+      <p class="contacte-panell__intro">Dubtes, propostes, una incidència al barri o ganes de col·laborar. Escriu-nos i et respondrem per correu.</p>
+      <dl class="contacte-panell__dades">
+        <div><dt>Correu</dt><dd><a href="mailto:avvcanyado@gmail.com">avvcanyado@gmail.com</a></dd></div>
+        <div><dt>Telèfon</dt><dd><a href="tel:+34934643680">93 464 36 80</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/avvcanyado/" rel="noopener">@avvcanyado</a></dd></div>
+        <div><dt>Com arribar-hi</dt><dd>Bus B2, B4, B7, B29, B30 i C10 · AMBici Riera de Canyadó · Aparcament al polígon de Can Ribó</dd></div>
+      </dl>
+      <p class="contacte-panell__avis">El local té escales d'accés: és difícil per a persones amb mobilitat reduïda.</p>
+    </aside>
     <form class="formulari" action="/api/contacte" method="post" data-contacte novalidate>
       <div class="camp">
         <label for="f-nom">Nom</label>
@@ -86,31 +93,6 @@
     </form>
   </section>
 
-  <section class="bloc" aria-labelledby="t-escriu">
-    <h2 id="t-escriu" class="visualment-amagat">Altres maneres de contactar</h2>
-    <div class="tres-info">
-      <div class="info">
-        <h3>Escriu-nos o truca'ns</h3>
-        <ul class="info__llista">
-          <li><a href="mailto:avvcanyado@gmail.com">avvcanyado@gmail.com</a></li>
-          <li><a href="tel:+34934643680">93 464 36 80</a></li>
-          <li><a href="https://www.instagram.com/avvcanyado/" rel="noopener">Instagram @avvcanyado</a></li>
-        </ul>
-      </div>
-      <div class="info">
-        <h3>Com arribar-hi</h3>
-        <ul class="info__llista">
-          <li>Bus B2, B4, B7, B29, B30 i C10</li>
-          <li>AMBici: parada Riera de Canyadó</li>
-          <li>Cotxe: polígon de Can Ribó</li>
-        </ul>
-      </div>
-      <div class="info info--avis">
-        <h3>Accés al local</h3>
-        <p>Per entrar cal pujar escales, i això el fa difícil per a persones amb mobilitat reduïda.</p>
-      </div>
-    </div>
-  </section>
 
 </main>
 {{footer}}
