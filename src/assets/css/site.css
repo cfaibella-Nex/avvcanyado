@@ -1450,3 +1450,10 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .fons--logos { overflow: visible !important; }
 .fons__logos { inset: 0 calc(50% - 50vw) !important; }
 html, body { overflow-x: clip; }
+
+/* Contacte: panell i formulari més translúcids perquè es vegi la vinyeta */
+.balcons .contacte-panell { background: linear-gradient(140deg, rgba(122, 59, 46, 0.5) 0%, rgba(94, 44, 34, 0.42) 100%); -webkit-backdrop-filter: blur(8px) saturate(1.2); backdrop-filter: blur(8px) saturate(1.2); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45); }
+.balcons .formulari-bloc .formulari { background: rgba(255, 252, 247, 0.55); -webkit-backdrop-filter: blur(6px) saturate(1.1); backdrop-filter: blur(6px) saturate(1.1); border: 1px solid rgba(255, 255, 255, 0.6); }
+.balcons .formulari .camp input, .balcons .formulari .camp select, .balcons .formulari .camp textarea { background: rgba(255, 255, 255, 0.85); }
+.balcons .formulari label, .balcons .formulari__info { text-shadow: 0 0 6px rgba(255, 255, 255, 0.9); }
+.balcons { margin-bottom: var(--espai); }
