@@ -1393,3 +1393,8 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .targeta:hover .targeta__obre, .targeta__obre:focus-visible { background: rgba(255, 255, 255, 0.35); color: var(--granat-fosc); }
 .targeta:hover .targeta__obre span { transform: translateX(3px); }
 .targeta__cos { gap: 0.55rem; }
+
+/* Qui som: xarxa de figures de fusta, rebaixada amb vel */
+.vel--xarxa .vel__foto img { object-position: 60% 45%; filter: saturate(0.75) contrast(0.95); }
+.vel--xarxa::after { background: linear-gradient(100deg, rgba(31, 42, 46, 0.82) 0%, rgba(31, 42, 46, 0.6) 42%, rgba(60, 40, 30, 0.35) 75%, rgba(60, 40, 30, 0.25) 100%); }
+.vel--xarxa { margin-bottom: 0; }
