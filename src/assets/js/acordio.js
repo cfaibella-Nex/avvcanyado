@@ -31,12 +31,30 @@ if (ul) {
     });
     if (!li.some((x) => x.classList.contains('obert')) && li[0]) li[0].classList.add('obert');
     ul.classList.toggle('acordio--actiu', amplia.matches && li.length > 1);
+    mides();
+  }
+  // Amplades fixes per a l'interior: així el contingut no es recol·loca mentre la columna s'obre
+  function mides() {
+    const li = items(); if (!li.length) return;
+    const franja = 83, gap = 10; // 5.2rem i 0.6rem aprox.
+    const oberta = Math.max(420, ul.clientWidth - (li.length - 1) * (franja + gap));
+    const media = Math.round(oberta * (oberta > 760 ? 0.57 : 0.5));
+    ul.style.setProperty('--w-media', `${media}px`);
+    ul.style.setProperty('--w-cos', `${oberta - media}px`);
   }
   function obre(el) {
     if (!el || el.classList.contains('obert')) return;
     items().forEach((x) => x.classList.toggle('obert', x === el));
   }
-  ul.addEventListener('mouseover', (e) => { if (ul.classList.contains('acordio--actiu')) obre(e.target.closest('li')); });
+  let espera = null;
+  ul.addEventListener('mouseover', (e) => {
+    if (!ul.classList.contains('acordio--actiu')) return;
+    const li = e.target.closest('li');
+    clearTimeout(espera);
+    espera = setTimeout(() => obre(li), 140);
+  });
+  ul.addEventListener('mouseleave', () => clearTimeout(espera));
+  addEventListener('resize', mides);
   ul.addEventListener('focusin', (e) => obre(e.target.closest('li')));
   ul.addEventListener('click', (e) => {
     const li = e.target.closest('li');
