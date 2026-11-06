@@ -1369,3 +1369,15 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .pindola--flota:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%); border-color: rgba(255, 255, 255, 0.95); -webkit-backdrop-filter: blur(6px) saturate(1.2); backdrop-filter: blur(6px) saturate(1.2); box-shadow: 0 14px 30px -18px rgba(31, 42, 46, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
 .pindola--flota:hover .pindola__gran { color: var(--granat-fosc); }
 .pindola--flota:hover .pindola__icona { background: rgba(255, 255, 255, 0.25); color: var(--granat-fosc); }
+
+/* Carrusel: targetes de cristall, totes iguals, i botons com els d'Inici */
+.carrusel--actiu .agenda--carrusel > li.targeta { background: linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.28) 100%); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4); border: 1px solid rgba(255, 255, 255, 0.7); box-shadow: 0 30px 60px -30px rgba(31, 42, 46, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.85); }
+.carrusel--actiu .agenda--carrusel > li .targeta__cos, .carrusel--actiu .agenda--carrusel > li:not([data-pos="centre"]) .targeta__cos { background: transparent; }
+.carrusel--actiu .agenda--carrusel > li:not([data-pos="centre"]) { opacity: calc(0.85 - var(--abs) * 0.3); }
+.carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 72%)) scale(calc(1 - var(--abs) * 0.16)) rotateY(calc(var(--o) * -14deg)); }
+.carrusel .targeta__obre { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 0.9rem; padding: 0.45rem 0.45rem 0.45rem 1.2rem; font-family: var(--f-titol); font-weight: 400; font-size: 1rem; color: var(--granat); background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.25) 100%); border: 1px solid rgba(255, 255, 255, 0.85); border-radius: 999px; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 10px 24px -14px rgba(31, 42, 46, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.carrusel .targeta__obre span { display: grid; place-items: center; width: 2.1rem; aspect-ratio: 1; border-radius: 50%; background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(255, 255, 255, 0.9); font-size: 1rem; }
+.carrusel .targeta:hover .targeta__obre, .carrusel .targeta__obre:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%); color: var(--granat-fosc); }
+.carrusel .targeta:hover .targeta__obre span { transform: translateX(3px); }
+.carrusel .xip-ag { background: rgba(255, 255, 255, 0.5); }
+@media (max-width: 759px) { .carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 82%)) scale(calc(1 - var(--abs) * 0.14)) rotateY(calc(var(--o) * -10deg)); } }

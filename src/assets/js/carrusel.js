@@ -27,7 +27,9 @@ if (arrel) {
     alcada();
   }
   function alcada() {
+    items().forEach((el) => { el.style.height = ''; });
     const max = Math.max(...items().map((el) => el.offsetHeight), 0);
+    items().forEach((el) => { el.style.height = `${max}px`; });
     ul.style.height = `${max + 40}px`;
   }
   const ves = (k) => { const n = items().length; actiu = (k + n) % n; pinta(); };
