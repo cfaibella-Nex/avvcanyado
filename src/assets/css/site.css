@@ -1360,3 +1360,12 @@ main > .balcons { max-width: none; padding-inline: 0; }
 
 /* Inici: entradeta en cursiva elegant (Cormorant Garamond) */
 .heroi--centre .entradeta { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(1.45rem, 2.15vw, 1.75rem); line-height: 1.4; color: var(--tinta); letter-spacing: 0.005em; }
+
+/* Inici: crides quietes, text granat; en passar-hi per sobre, més transparents */
+.heroi__cta--e.pindola--flota, .heroi__cta--d.pindola--flota { animation: none !important; }
+.pindola--flota .pindola__gran { color: var(--granat); }
+.pindola--flota .pindola__icona { color: var(--granat); }
+.pindola--flota { transition: background 350ms ease, box-shadow 350ms ease, border-color 350ms ease, -webkit-backdrop-filter 350ms ease, backdrop-filter 350ms ease; }
+.pindola--flota:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%); border-color: rgba(255, 255, 255, 0.95); -webkit-backdrop-filter: blur(6px) saturate(1.2); backdrop-filter: blur(6px) saturate(1.2); box-shadow: 0 14px 30px -18px rgba(31, 42, 46, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.pindola--flota:hover .pindola__gran { color: var(--granat-fosc); }
+.pindola--flota:hover .pindola__icona { background: rgba(255, 255, 255, 0.25); color: var(--granat-fosc); }
