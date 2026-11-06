@@ -1249,3 +1249,20 @@ main > .veinat-fons { max-width: none; padding-inline: 0; }
 .formulari-bloc .camp { align-content: start; }
 .formulari-bloc .camp input, .formulari-bloc .camp select { height: 3rem; padding-block: 0; }
 @media (min-width: 960px) { .formulari-bloc .camp textarea { min-height: 11rem; } .formulari-bloc .formulari { align-content: center; } }
+
+/* Junta: marca d'aigua gran, que abraça «Independents» i «La Junta» */
+main > .junta-oficial { max-width: none; padding-inline: 0; }
+.junta-oficial { position: relative; isolation: isolate; overflow: clip; }
+.junta-oficial > .bloc { max-width: var(--amplada); margin-inline: auto; padding-inline: var(--marge); }
+.junta-oficial__marca { position: absolute; z-index: -1; top: 6%; left: 50%; right: auto; width: min(92vw, 68rem); transform: translateX(-42%) rotate(-5deg); opacity: 0.3; }
+@media (max-width: 759px) { .junta-oficial__marca { width: 150%; top: 12%; transform: translateX(-50%) rotate(-7deg); opacity: 0.2; } }
+
+/* Fes-te soci: foto panoràmica i targeta de cristall */
+.soci-banda__foto img { object-position: 78% 35% !important; }
+.soci-banda__foto::after { background: linear-gradient(180deg, transparent 82%, var(--crema) 100%) !important; }
+.soci-banda__targeta { position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.16) 55%, rgba(255, 255, 255, 0.28) 100%); -webkit-backdrop-filter: blur(26px) saturate(1.6) brightness(1.08); backdrop-filter: blur(26px) saturate(1.6) brightness(1.08); border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 30px; box-shadow: 0 30px 70px -30px rgba(15, 40, 80, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(255, 255, 255, 0.2); }
+.soci-banda__targeta::before { content: ''; position: absolute; inset: -40% -20% auto auto; width: 70%; height: 80%; background: radial-gradient(closest-side, rgba(255, 255, 255, 0.45), transparent); pointer-events: none; }
+.soci-banda__targeta > * { position: relative; }
+.soci-banda__targeta h2, .soci-banda__targeta h3 { color: var(--tinta); }
+.soci-banda__targeta .xifra span { color: var(--granat); }
+@media (max-width: 859px) { .soci-banda__foto img { object-position: 85% 30% !important; } }
