@@ -1398,3 +1398,7 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .vel--xarxa .vel__foto img { object-position: 60% 45%; filter: saturate(0.75) contrast(0.95); }
 .vel--xarxa::after { background: linear-gradient(100deg, rgba(31, 42, 46, 0.82) 0%, rgba(31, 42, 46, 0.6) 42%, rgba(60, 40, 30, 0.35) 75%, rgba(60, 40, 30, 0.25) 100%); }
 .vel--xarxa { margin-bottom: 0; }
+/* Inici: les dues crides amb la mateixa amplada */
+.pindola--flota { width: 17.5rem; grid-template-columns: 1fr auto; justify-content: space-between; }
+@media (max-width: 959px) { .pindola--flota { width: 16rem; min-width: 0; } }
+.pindola--flota .pindola__gran { justify-self: start; } @media (min-width: 960px) { .heroi__cta--e.pindola--flota, .heroi__cta--d.pindola--flota { margin: 0 !important; translate: none !important; } .heroi__cta--e.pindola--flota { justify-self: start; } .heroi__cta--d.pindola--flota { justify-self: end; } }
