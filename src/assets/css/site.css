@@ -1434,3 +1434,15 @@ main > .balcons { max-width: none; padding-inline: 0; }
   .heroi__cta--d.pindola--flota { justify-self: end !important; align-self: start !important; margin-top: 2.5rem !important; }
   .heroi__escena .heroi__foto { width: 100%; justify-self: center; }
 }
+/* Crides una mica cap al centre, sense tocar la foto */
+@media (min-width: 1150px) {
+  .heroi__escena { width: auto; margin-inline: 0; padding-inline: 0; grid-template-columns: 17rem minmax(0, 44rem) 17rem; justify-content: center; gap: 0 2rem; }
+}
+@media (min-width: 1150px) and (max-width: 1299px) { .heroi__escena { grid-template-columns: 15.5rem minmax(0, 38rem) 15.5rem; gap: 0 1.5rem; } .pindola--flota { width: 15.5rem; } }
+@media (min-width: 1150px) {
+  .heroi__escena { width: min(calc(100vw - 6rem), 84rem); margin-inline: calc((100% - min(calc(100vw - 6rem), 84rem)) / 2); grid-template-columns: 17rem minmax(0, 1fr) 17rem; gap: 0 2.5rem; }
+}
+@media (min-width: 1150px) and (max-width: 1299px) { .heroi__escena { grid-template-columns: 15.5rem minmax(0, 1fr) 15.5rem; gap: 0 1.5rem; } }
+@media (min-width: 1150px) {
+  .heroi__escena { width: min(calc(100vw - 6rem), 76rem); margin-inline: calc((100% - min(calc(100vw - 6rem), 76rem)) / 2); }
+}
