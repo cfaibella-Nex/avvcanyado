@@ -1402,3 +1402,25 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .pindola--flota { width: 17.5rem; grid-template-columns: 1fr auto; justify-content: space-between; }
 @media (max-width: 959px) { .pindola--flota { width: 16rem; min-width: 0; } }
 .pindola--flota .pindola__gran { justify-self: start; } @media (min-width: 960px) { .heroi__cta--e.pindola--flota, .heroi__cta--d.pindola--flota { margin: 0 !important; translate: none !important; } .heroi__cta--e.pindola--flota { justify-self: start; } .heroi__cta--d.pindola--flota { justify-self: end; } }
+
+/* ── Inici: crides fora de la foto, idèntiques; fotos que surten molt més grans ── */
+.pindola--flota { background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.45) 100%); }
+.heroi .marc::before { animation: gira-a 900ms cubic-bezier(.2, .7, .2, 1) both !important; }
+.heroi .marc__extra--1 { animation: gira-c 1100ms 220ms cubic-bezier(.2, .7, .2, 1) both !important; }
+.heroi .marc__extra--2 { animation: gira-d 1100ms 320ms cubic-bezier(.2, .7, .2, 1) both !important; }
+@media (min-width: 960px) {
+  .heroi__escena { grid-template-columns: 1fr 1fr; grid-template-areas: "e d" "foto foto"; gap: 2.5rem 1.5rem; justify-items: center; }
+  .heroi__escena .heroi__foto { grid-area: foto; width: min(100%, 46rem); }
+  .heroi__cta--e.pindola--flota { grid-area: e; justify-self: end !important; }
+  .heroi__cta--d.pindola--flota { grid-area: d; justify-self: start !important; }
+}
+/* Hover: les tres fotos s'obren grans, gairebé a mitja pantalla */
+@media (hover: hover) and (min-width: 960px) {
+  .heroi { overflow: visible; }
+  .heroi--centre .heroi__foto:hover { z-index: 6; position: relative; }
+  .heroi--centre .heroi__foto:hover .pila__f--e { transform: translate(-62%, 4%) rotate(-6deg) scale(1.02); }
+  .heroi--centre .heroi__foto:hover .pila__f--a { transform: translate(0, -30%) rotate(1.5deg) scale(0.98); }
+  .heroi--centre .heroi__foto:hover .pila__f--d { transform: translate(62%, 8%) rotate(5deg) scale(1.02); }
+  .heroi--centre .heroi__foto:hover .pila__f--principal { transform: scale(0.7); opacity: 0.35; }
+}
+@media (min-width: 960px) { .heroi__escena { align-items: center; } .heroi__cta.pindola--flota { align-self: center !important; height: 4.4rem; } }
