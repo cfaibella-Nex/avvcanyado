@@ -1381,3 +1381,15 @@ main > .balcons { max-width: none; padding-inline: 0; }
 .carrusel .targeta:hover .targeta__obre span { transform: translateX(3px); }
 .carrusel .xip-ag { background: rgba(255, 255, 255, 0.5); }
 @media (max-width: 759px) { .carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 82%)) scale(calc(1 - var(--abs) * 0.14)) rotateY(calc(var(--o) * -10deg)); } }
+/* Carrusel: laterals més separats de la central */
+.carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 90%)) scale(calc(1 - var(--abs) * 0.18)) rotateY(calc(var(--o) * -12deg)); }
+@media (max-width: 1100px) { .carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 84%)) scale(calc(1 - var(--abs) * 0.18)) rotateY(calc(var(--o) * -12deg)); } }
+@media (max-width: 759px) { .carrusel--actiu .agenda--carrusel > li { transform: translateX(calc(var(--o) * 92%)) scale(calc(1 - var(--abs) * 0.14)) rotateY(calc(var(--o) * -10deg)); } }
+
+/* ── Repàs visual: un sol llenguatge de botons a tot el web ── */
+.boto { border-radius: 999px; padding-inline: 1.5rem; }
+.targeta__obre { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 0.9rem; padding: 0.45rem 0.45rem 0.45rem 1.2rem; font-family: var(--f-titol); font-weight: 400; font-size: 1rem; color: var(--granat); background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.35) 100%); border: 1px solid rgba(122, 59, 46, 0.18); border-radius: 999px; box-shadow: 0 10px 24px -16px rgba(31, 42, 46, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+.targeta__obre span { display: grid; place-items: center; width: 2.1rem; aspect-ratio: 1; border-radius: 50%; background: rgba(122, 59, 46, 0.08); border: 1px solid rgba(122, 59, 46, 0.15); transition: transform 250ms; }
+.targeta:hover .targeta__obre, .targeta__obre:focus-visible { background: rgba(255, 255, 255, 0.35); color: var(--granat-fosc); }
+.targeta:hover .targeta__obre span { transform: translateX(3px); }
+.targeta__cos { gap: 0.55rem; }
