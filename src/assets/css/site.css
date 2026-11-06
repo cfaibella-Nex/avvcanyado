@@ -1266,3 +1266,26 @@ main > .junta-oficial { max-width: none; padding-inline: 0; }
 .soci-banda__targeta h2, .soci-banda__targeta h3 { color: var(--tinta); }
 .soci-banda__targeta .xifra span { color: var(--granat); }
 @media (max-width: 859px) { .soci-banda__foto img { object-position: 85% 30% !important; } }
+
+/* Fes-te soci: en passar-hi per sobre, el cristall es torna nítid */
+.soci-banda__targeta { transition: background 450ms ease, backdrop-filter 450ms ease, -webkit-backdrop-filter 450ms ease, box-shadow 450ms ease, transform 450ms cubic-bezier(.2, .7, .2, 1); }
+.soci-banda__targeta:hover, .soci-banda__targeta:focus-within { background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 252, 247, 0.8) 100%); -webkit-backdrop-filter: blur(8px) saturate(1.1); backdrop-filter: blur(8px) saturate(1.1); transform: translateY(-4px); box-shadow: 0 40px 80px -30px rgba(15, 40, 80, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+
+/* ── Contacte: veïnat als balcons de fons, panell «Parlem» de vidre ── */
+main > .balcons { max-width: none; padding-inline: 0; }
+.balcons { position: relative; isolation: isolate; overflow: hidden; padding-top: var(--espai); }
+.balcons > .bloc { max-width: var(--amplada); margin-inline: auto; padding-inline: var(--marge); }
+.balcons__fons { position: absolute; inset: 0; z-index: -1; background: url(/assets/img/contacte-balcons.jpg) center 35% / cover no-repeat; }
+.balcons__fons::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--crema) 0%, rgba(244, 240, 234, 0.15) 14%, rgba(244, 240, 234, 0.1) 85%, var(--crema) 100%); }
+@media (max-width: 759px) { .balcons__fons { background-image: url(/assets/img/contacte-balcons-900.jpg); background-position: 30% 30%; } }
+.balcons .contacte-panell { background: linear-gradient(140deg, rgba(122, 59, 46, 0.72) 0%, rgba(94, 44, 34, 0.62) 100%); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2); border: 1px solid rgba(255, 255, 255, 0.25); border-right: 0; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); }
+.balcons .formulari-bloc .formulari { background: rgba(255, 252, 247, 0.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+@media (max-width: 959px) { .balcons .contacte-panell { border-right: 1px solid rgba(255, 255, 255, 0.25); border-bottom: 0; } }
+
+/* ── Publicacions: la revista inclinada de fons ── */
+.revista-fons { position: relative; isolation: isolate; min-height: 20rem; }
+.revista-fons__img { position: absolute; z-index: -1; top: -1.5rem; right: -1rem; width: clamp(11rem, 22vw, 16rem); height: auto; transform: rotate(8deg); opacity: 0.32; box-shadow: 0 25px 50px -20px rgba(31, 42, 46, 0.5); border: 6px solid #fff; pointer-events: none; transition: opacity 400ms, transform 400ms; }
+.revista-fons:hover .revista-fons__img { opacity: 0.55; transform: rotate(5deg); }
+.revista-fons > :not(img) { position: relative; max-width: 30rem; }
+@media (max-width: 759px) { .revista-fons__img { right: -2rem; width: 10rem; opacity: 0.22; } }
+@media (max-width: 759px) { .revista-fons__img { right: 0; top: 0; } }
