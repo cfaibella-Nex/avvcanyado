@@ -44,6 +44,7 @@ export const numDia = (s) => String(Number(s.slice(8, 10)));
 export const dataLlarga = (s) => `${diaSetmana(s)}, ${diaMes(s)}`;
 
 export function horari(a) {
+  if (a.horaText) return a.horaText;
   if (!a.hora) return '';
   return a.horaFi ? `de ${a.hora} a ${a.horaFi} h` : `a les ${a.hora} h`;
 }

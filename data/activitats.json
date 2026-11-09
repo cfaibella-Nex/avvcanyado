@@ -9,19 +9,20 @@
       "regla": {
         "text": "dos dijous al mes"
       },
-      "hora": "17.30",
-      "horaFi": "19.30",
+      "hora": "17.00",
+      "horaFi": null,
       "lloc": "Seu de l'AVV, c/ Eduard Marquina, 25-27",
       "descripcio": "Berenars, participació ciutadana, jocs de taula, contacontes, xerrades i tallers. Un espai obert a tothom, de totes les edats, per conèixer el veïnat i fer barri. Amb el suport de NexSocial.",
       "cartell": "cartell-una-cadira-mes",
       "preu": "Gratuït",
       "dates": [
-        "2026-11-12",
+        "2026-11-19",
         "2026-11-26",
         "2026-12-03",
         "2026-12-17"
       ],
-      "imatge": "una-cadira-mes-collage-700"
+      "imatge": "una-cadira-mes-collage-700",
+      "horaText": "a partir de les 17 h"
     },
     {
       "id": "convivencies-nadal-2026",
@@ -78,7 +79,7 @@
       "lloc": "Masia de Can Canyadó",
       "descripcio": "Ses Majestats els Reis d'Orient visiten Canyadó. Porta la carta i vine a rebre'ls amb tot el veïnat. Aviat publicarem l'horari i el recorregut.",
       "cartell": null,
-      "imatge": "reis-mags-2027-700",
+      "imatge": "reis-mags-2027",
       "pendent": true
     }
   ]

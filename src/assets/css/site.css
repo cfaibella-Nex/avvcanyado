@@ -1526,3 +1526,9 @@ html, body { overflow-x: clip; }
   .acordio--actiu > li::after { transition: opacity 300ms ease; }
   .acordio--actiu > li.obert::after { content: attr(data-titol); opacity: 0; position: absolute; }
 }
+
+/* Crides d'Inici sense fletxa */
+.pindola--flota { grid-template-columns: 1fr !important; grid-template-areas: "gran" !important; justify-items: center; padding: 0.95rem 1.8rem !important; }
+.pindola--flota .pindola__gran { justify-self: center !important; }
+/* Reis Mags: la foto més amunt (es veu la figura) */
+img[src*="reis-mags-2027"] { object-position: 50% 72% !important; }
