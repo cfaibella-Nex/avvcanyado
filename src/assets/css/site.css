@@ -1532,3 +1532,6 @@ html, body { overflow-x: clip; }
 .pindola--flota .pindola__gran { justify-self: center !important; }
 /* Reis Mags: la foto més amunt (es veu la figura) */
 img[src*="reis-mags-2027"] { object-position: 50% 72% !important; }
+/* Crides d'Inici: en passar-hi per sobre, gairebé blanques */
+.pindola--flota:hover { background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.82) 100%) !important; border-color: #fff !important; box-shadow: 0 22px 46px -22px rgba(31, 42, 46, 0.4), inset 0 1px 0 #fff !important; }
+.pindola--flota:hover .pindola__gran { color: var(--granat); }
