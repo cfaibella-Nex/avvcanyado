@@ -230,7 +230,7 @@ function render(fitxer, text = null) {
     .replaceAll('{{v}}', versio);
 
   const una = activitats.activitats.find((a) => a.id === 'una-cadira-mes');
-  const propersUna = datesPeriodica(una, hoy, 2).map((s) => (s === hoy ? `avui, ${diaMes(s)}` : dataLlarga(s))).join(' i ') || 'aviat publicarem les properes dates';
+  const propersUna = (una && una.tipus === 'periodica' ? datesPeriodica(una, hoy, 2) : []).map((s) => (s === hoy ? `avui, ${diaMes(s)}` : dataLlarga(s))).join(' i ') || 'aviat publicarem les properes dates';
 
   const subs = {
     '{{header}}': partial('header').replaceAll('{{nav}}', navHTML(meta.nav)),

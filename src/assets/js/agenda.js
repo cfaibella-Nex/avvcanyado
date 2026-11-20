@@ -143,7 +143,7 @@ if (typeof document !== 'undefined') {
     activaFitxes(activitats, hoy);
     document.querySelectorAll('[data-propers-dies]').forEach((el) => {
       const a = activitats.find((x) => x.id === el.dataset.propersDies);
-      if (!a) return;
+      if (!a || a.tipus !== 'periodica') return;
       const dates = datesPeriodica(a, hoy, 2);
       if (!dates.length) return;
       el.textContent = dates.map((s) => (s === hoy ? `avui, ${diaMes(s)}` : dataLlarga(s))).join(' i ');

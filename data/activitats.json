@@ -3,31 +3,23 @@
   "activitats": [
     {
       "id": "una-cadira-mes",
-      "tipus": "periodica",
+      "tipus": "esdeveniment",
       "titol": "Una cadira més",
       "subtitol": "Tardeos veïnals",
-      "regla": {
-        "text": "dos dijous al mes"
-      },
       "hora": "17.00",
       "horaFi": null,
       "lloc": "Seu de l'AVV, c/ Eduard Marquina, 25-27",
-      "descripcio": "Berenar de cortesia, participació ciutadana, jocs de taula, racó infantil, xerrades i tallers. El 19 escoltem les teves propostes: quins tallers, cursos i xerrades vols i fan falta al barri? Al Racó NexSocial t'explicarem què és l'Acompanyament Sociovital, una iniciativa pionera al barri.",
+      "descripcio": "Tardeo veïnal amb berenar de cortesia, jocs de taula, racó infantil, xerrades i tallers. El 19 vam escoltar les propostes del veïnat sobre els tallers, cursos i xerrades que fan falta al barri, i al Racó NexSocial vam explicar què és l'Acompanyament Sociovital.",
       "cartell": "cartell-una-cadira-mes",
       "preu": "Gratuït",
-      "dates": [
-        "2026-11-19",
-        "2026-12-03",
-        "2026-12-17"
-      ],
-      "imatge": "una-cadira-mes-collage-700",
-      "horaText": "a partir de les 17 h"
+      "horaText": "a partir de les 17 h",
+      "data": "2026-11-19"
     },
     {
       "id": "convivencies-nadal-2026",
       "tipus": "esdeveniment",
       "titol": "Convivències de Nadal",
-      "data": "2026-12-18",
+      "data": "2026-12-19",
       "hora": null,
       "lloc": "Seu de l'AVV, c/ Eduard Marquina, 25-27",
       "descripcio": "Ens retrobem al local per celebrar les festes amb el veïnat. Aviat publicarem l'horari i el programa.",
